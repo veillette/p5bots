@@ -67,7 +67,7 @@ board.pin(num, mode, direction)
 ```
 -- NUM: pin #  
 -- MODE: digital | analog | pwm || any special method
--- DIRECTION: input | output  
+-- DIRECTION: input | output  | pullup
   
 ```js
 // shorthand pin initialization
@@ -85,8 +85,9 @@ board.HIGH
 board.LOW
 
 // direction
-board.INPUT 
+board.INPUT
 board.OUTPUT
+board.PULLUP
 
 // basic mode types
 board.ANALOG
@@ -96,10 +97,10 @@ board.PWM
 // special mode types
 board.SERVO
 board.BUTTON
-board.KNOCK 
-board.LED 
-board.MOTOR 
-board.PIEZO 
+board.KNOCK
+board.LED
+board.MOTOR
+board.PIEZO
 board.RGBLED
 board.TEMP
 board.TONE

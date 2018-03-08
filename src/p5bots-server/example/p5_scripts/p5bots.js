@@ -22,7 +22,7 @@ var specialMethods = {
 var Board = function (port, type){
   this.port = port;
   this.type = type.toLowerCase() || 'arduino';
-  
+
   // Will be set when board is connected
   this.ready = false;
   this.eventQ = [];
@@ -35,7 +35,8 @@ var Board = function (port, type){
 
   this.INPUT =    'input';
   this.OUTPUT =   'output';
-  
+  this.PULLUP =   'pullup';
+
   this.ANALOG =   'analog';
   this.DIGITAL =  'digital';
   this.PWM =      'pwm';
@@ -58,7 +59,7 @@ var Pin = function(num, mode, direction){
   this.direction = direction ? direction.toLowerCase() : 'output';
 
   this.mode = mode ? mode.toLowerCase() : 'digital';
-  
+
   if (specialMethods[this.mode]) {
     this.special = this.mode;
     this.mode = specialMethods[this.mode].mode;
@@ -70,7 +71,7 @@ var Pin = function(num, mode, direction){
 
 Board.prototype.pin = function(num, mode, direction){
   var _pin = new Pin(num, mode, direction);
-  
+
   if (_pin.special) {
     specialMethods[_pin.special].fn(_pin);
 
@@ -103,11 +104,11 @@ p5.board = function (port, type){
     el.func.apply(null, el.args);
    });
   });
-   
+
   return utils.board;
 };
 
-// Serial does not pass through firmata & therefore not through 
+// Serial does not pass through firmata & therefore not through
 // board & pin constructors
 p5.serial = special.serial;
 
@@ -122,7 +123,7 @@ function button (pin) {
 
   utils.dispatch(utils.pinInit(pin.pin, pin.mode, pin.direction));
   utils.constructFuncs(pin);
-  
+
   pin.pressed = function(cb) {
     function pinPress() {
       this.buttonPressedcb = cb;
@@ -138,7 +139,7 @@ function button (pin) {
   };
 
   pin.held = function(cb, threshold) {
-    
+
     function pinHeld() {
       this.buttonHeldcb = function() {
         var timeout = setTimeout(cb, threshold);
@@ -163,18 +164,18 @@ function led(pin) {
   utils.dispatch(utils.pinInit(pin.pin, pin.mode, pin.direction));
   utils.constructFuncs(pin);
   pin.on = function() {
-    
+
     function ledOn() {
       utils.socket.emit('blink cancel');
       if(this.mode !== 'pwm') {
-        this.write('HIGH');  
+        this.write('HIGH');
       } else {
         this.write(255)
-      } 
+      }
     }
 
     utils.dispatch(ledOn.bind(this));
-    
+
   };
 
   pin.off = function() {
@@ -182,7 +183,7 @@ function led(pin) {
     function ledOff() {
       utils.socket.emit('blink cancel');
       if(this.mode !== 'pwm') {
-        this.write('LOW');  
+        this.write('LOW');
       } else {
         this.write(0);
       }
@@ -191,7 +192,7 @@ function led(pin) {
     utils.dispatch(ledOff.bind(this));
 
   };
-  
+
   pin.fade = function(start, stop, totalTime, increment) {
     function ledFade() {
       var totalTime = totalTime || 3000,
@@ -209,7 +210,7 @@ function led(pin) {
     }
 
     utils.dispatch(ledBlink.bind(this));
-    
+
   };
 
   pin.noBlink = function() {
@@ -237,18 +238,18 @@ function motor(pin) {
   pin.on = function() {
     function motorOn() {
       if(this.mode !== 'pwm') {
-        this.write('HIGH');  
+        this.write('HIGH');
       } else {
         this.write(255)
-      } 
+      }
     }
-    utils.dispatch(motorOn.bind(this)); 
+    utils.dispatch(motorOn.bind(this));
   };
-  
+
   pin.off = function() {
     function motorOff() {
       if(this.mode !== 'pwm') {
-        this.write('LOW');  
+        this.write('LOW');
       } else {
         // In my test setup, this works whereas writing 0 does not
         this.write(10);
@@ -274,7 +275,7 @@ function piezo(pin) {
       this.readcb && this.readcb(data.val);
       this.val = data.val;
 
-      utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);          
+      utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);
     };
 
     var fire = utils.socketGen('analog', 'read', pin);
@@ -316,7 +317,7 @@ var utils = require('./socket_utils.js');
 function rgb(pin) {
   // Unpack pin object & initialize pins
   var settings = pin.pin;
-  
+
   pin.redPin = settings.r || settings.red;
   pin.greenPin = settings.g || settings.green;
   pin.bluePin = settings.b || settings.blue;
@@ -410,13 +411,13 @@ function rgb(pin) {
 
   pin.blink = function() {
     function rgbBlink() {
-      utils.socket.emit('rgb blink', { 
+      utils.socket.emit('rgb blink', {
         pins: {
           red: [this.redPin, this.color.writeArr[0] || 255],
           green: [this.greenPin, this.color.writeArr[1] || 255],
           blue: [this.bluePin, this.color.writeArr[2] || 255]
         },
-        length: length 
+        length: length
       });
     }
 
@@ -424,7 +425,7 @@ function rgb(pin) {
   };
 
   pin.noBlink = function() {
-  
+
     function rgbNoBlink() {
       utils.socket.emit('rgb blink cancel');
     }
@@ -436,32 +437,32 @@ function rgb(pin) {
   pin.fade = function (red, green, blue) {
     function rgbFade() {
       utils.socket.emit('rgb fade', {
-        red: { 
-          pin: this.redPin, 
-          start: red[0], 
-          stop: red[1], 
-          time: red[2] || 3000, 
-          inc: red[3] || 200 
+        red: {
+          pin: this.redPin,
+          start: red[0],
+          stop: red[1],
+          time: red[2] || 3000,
+          inc: red[3] || 200
         },
-        green: { 
-          pin: this.greenPin, 
-          start: green[0], 
-          stop: green[1], 
-          time: green[2] || 3000, 
-          inc: green[3] || 200 
+        green: {
+          pin: this.greenPin,
+          start: green[0],
+          stop: green[1],
+          time: green[2] || 3000,
+          inc: green[3] || 200
         },
-        blue: { 
-          pin: this.bluePin, 
-          start: blue[0], 
-          stop: blue[1], 
-          time: blue[2] || 3000, 
-          inc: blue[3] || 200 
+        blue: {
+          pin: this.bluePin,
+          start: blue[0],
+          stop: blue[1],
+          time: blue[2] || 3000,
+          inc: blue[3] || 200
         }
       });
     }
 
     utils.dispatch(rgbFade.bind(this));
-  
+
   };
 
   return pin;
@@ -482,7 +483,7 @@ var serial = function() {
       config: config
     });
   };
-  
+
   serialObj.read = function(cb) {
     socket.emit('serial read');
     socket.on('serial read return', function(data){
@@ -504,7 +505,7 @@ var serial = function() {
       cb && cb(data);
     });
   };
-  
+
   return serialObj;
 
 };
@@ -518,7 +519,7 @@ function servo(pin) {
   utils.constructFuncs(pin);
   this.rangeMin = 0;
   this.rangeMax = 45;
-  
+
   // Overwrite defualt write returned from construct funcs with servoWrite
   pin.write = function(arg) {
     var fire = utils.socketGen('servo', 'write', pin);
@@ -556,7 +557,7 @@ function servo(pin) {
       utils.socket.emit('sweep cancel');
     }
     utils.dispatch(cancelSweep.bind(this));
-  }; 
+  };
 
   return pin;
 }
@@ -590,7 +591,7 @@ var utils =  {
       this.readcb && this.readcb(data.val);
       this.val = data.val;
 
-      utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);          
+      utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);
     };
 
     pin.read = function(arg) {
@@ -600,7 +601,7 @@ var utils =  {
       return function nextRead(arg) { fire(arg) };
     }
 
-    pin.write = function(arg) {         
+    pin.write = function(arg) {
       var fire = utils.socketGen(mode, 'write', pin);
       utils.dispatch(fire, arg);
       return function nextWrite(arg) { fire(arg) };
@@ -653,7 +654,7 @@ var utils =  {
     vres: function vresTests(val){
       this.readRange && this.readRange();
     }
-  }, 
+  },
 
   socket: socket,
 
@@ -676,7 +677,7 @@ var utils =  {
 module.exports = utils;
 },{}],10:[function(require,module,exports){
 var special = {
-  
+
   button: require('./button.js'),
 
   led: require('./led.js'),
@@ -702,9 +703,9 @@ module.exports = special;
 var utils = require('./socket_utils.js');
 
 function temp(pin) {
-  // Unpack pin object, pluck data & reassign pin num to pin.pin for generation 
+  // Unpack pin object, pluck data & reassign pin num to pin.pin for generation
   var settings = pin.pin;
-      
+
   pin._voltsIn = settings.voltsIn;
   pinNum = settings.pin;
   pin.pin = pinNum;
@@ -717,7 +718,7 @@ function temp(pin) {
   this.C = function() { throw new Error('Remember to call read before try to get a temp value.') };
   this.F = function() { throw new Error('Remember to call read before try to get a temp value.') };
   this.K = function() { throw new Error('Remember to call read before try to get a temp value.') };
-  
+
 
   return pin;
 }

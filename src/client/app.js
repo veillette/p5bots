@@ -46,6 +46,7 @@ var Board = function (port, type){
 
   this.INPUT =    'input';
   this.OUTPUT =   'output';
+  this.PULLUP =   'pullup';
 
   this.ANALOG =   'analog';
   this.DIGITAL =  'digital';
