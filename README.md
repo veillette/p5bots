@@ -43,7 +43,7 @@ Details for these methods, plus examples can be found in the module pages. Examp
 ## Getting Started
 Ready to go? Good entry points include:
 * [the Hello, World tutorial](examples/HelloWorld.md)
-* [checking out examples, say for RGB LEDs](https://github.com/sarahgp/p5bots/tree/master/examples#rgb-write)
+* [checking out examples, say for RGB LEDs](examples/README.md#rgb-write)
 * reading about [the client API](src/client/README.md), which lists the methods you can use in your p5 code and covers setting up in detail, and [p5bots-server](https://github.com/sarahgp/p5bots/tree/master/src/p5bots-server)
 * or, [heading over to p5.js to learn more about the drawing library](http://p5js.org/)
 
