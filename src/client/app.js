@@ -4,8 +4,8 @@
 
 'use strict';
 
-var utils = require('./lib/socket_utils.js');
-var special = require('./lib/special_methods_index.js');
+var utils = require( './lib/socket_utils.js' );
+var special = require( './lib/special_methods_index.js' );
 var modeError = "Please check mode. Value should be 'analog', 'digital', 'pwm', or servo"; // jshint ignore:line
 
 
@@ -30,7 +30,7 @@ var specialMethods = {
  * @param {String} port The port to which the microcontroller is connected
  * @param {String} type Type of microcontroller
  */
-var Board = function (port, type){
+var Board = function( port, type ) {
   this.port = port;
   this.type = type.toLowerCase() || 'arduino';
 
@@ -41,27 +41,27 @@ var Board = function (port, type){
   this.pinsArray = [];
 
   // Constants
-  this.HIGH =     'high';
-  this.LOW =      'low';
+  this.HIGH = 'high';
+  this.LOW = 'low';
 
-  this.INPUT =    'input';
-  this.OUTPUT =   'output';
-  this.PULLUP =   'pullup';
+  this.INPUT = 'input';
+  this.OUTPUT = 'output';
+  this.PULLUP = 'pullup';
 
-  this.ANALOG =   'analog';
-  this.DIGITAL =  'digital';
-  this.PWM =      'pwm';
-  this.SERVO =    'servo';
+  this.ANALOG = 'analog';
+  this.DIGITAL = 'digital';
+  this.PWM = 'pwm';
+  this.SERVO = 'servo';
 
-  this.BUTTON =   'button';
-  this.KNOCK =    'knock';
-  this.LED =      'led';
-  this.MOTOR =    'motor';
-  this.PIEZO =    'piezo';
-  this.RGBLED =   'rgbled';
-  this.TEMP =     'temp';
-  this.TONE =     'tone';
-  this.VRES =     'vres';
+  this.BUTTON = 'button';
+  this.KNOCK = 'knock';
+  this.LED = 'led';
+  this.MOTOR = 'motor';
+  this.PIEZO = 'piezo';
+  this.RGBLED = 'rgbled';
+  this.TEMP = 'temp';
+  this.TONE = 'tone';
+  this.VRES = 'vres';
 
 };
 
@@ -73,19 +73,19 @@ var Board = function (port, type){
  * @param {String} [mode]      Pin mode: can be basic or complex
  * @param {String} [direction] Input or output
  */
-var Pin = function(num, mode, direction){
+var Pin = function( num, mode, direction ) {
   this.pin = num;
   this.direction = direction ? direction.toLowerCase() : 'output';
 
   this.mode = mode ? mode.toLowerCase() : 'digital';
 
-  if (specialMethods[this.mode]) {
+  if ( specialMethods[ this.mode ] ) {
     this.special = this.mode;
-    this.mode = specialMethods[this.mode].mode;
+    this.mode = specialMethods[ this.mode ].mode;
   }
 
-  this.write = function() { throw new Error('Write undefined'); };
-  this.read = function() { throw new Error('Read undefined'); };
+  this.write = function() { throw new Error( 'Write undefined' ); };
+  this.read = function() { throw new Error( 'Read undefined' ); };
 };
 
 
@@ -98,25 +98,28 @@ var Pin = function(num, mode, direction){
  * @param {String} [direction] Input or output
  * @return {Object}            Instantiated pin
  */
-Board.prototype.pin = function(num, mode, direction){
-  var _pin = new Pin(num, mode, direction);
+Board.prototype.pin = function( num, mode, direction ) {
+  var _pin = new Pin( num, mode, direction );
 
-  if (_pin.special) {
-    specialMethods[_pin.special].fn(_pin);
+  if ( _pin.special ) {
+    specialMethods[ _pin.special ].fn( _pin );
 
-  } else if (_pin.mode === 'digital' || _pin.mode === 'analog') {
-    utils.dispatch(utils.pinInit(_pin.pin, _pin.mode, _pin.direction));
-    utils.constructFuncs(_pin);
+  }
+  else if ( _pin.mode === 'digital' || _pin.mode === 'analog' ) {
+    utils.dispatch( utils.pinInit( _pin.pin, _pin.mode, _pin.direction ) );
+    utils.constructFuncs( _pin );
 
-  } else if (_pin.mode === 'pwm') {
-    utils.dispatch(utils.pinInit(_pin.pin, _pin.mode, _pin.direction));
-    utils.constructFuncs(_pin, 'analog');
+  }
+  else if ( _pin.mode === 'pwm' ) {
+    utils.dispatch( utils.pinInit( _pin.pin, _pin.mode, _pin.direction ) );
+    utils.constructFuncs( _pin, 'analog' );
 
-  } else {
-    throw new Error(modeError);
+  }
+  else {
+    throw new Error( modeError );
   }
 
-  this.pinsArray.push(_pin);
+  this.pinsArray.push( _pin );
 
   return _pin;
 };
@@ -132,17 +135,17 @@ Board.prototype.pin = function(num, mode, direction){
  * @return {Object}     Reference to the object as stored in utils.
  *
  */
-p5.board = function (port, type){
-  utils.board = new Board(port, type);
+p5.board = function( port, type ) {
+  utils.board = new Board( port, type );
 
   // emit board object & listen for return
-  utils.boardInit(port, type);
-  utils.socket.on('board ready', function(data) {
+  utils.boardInit( port, type );
+  utils.socket.on( 'board ready', function( data ) {
     utils.board.ready = true;
-    utils.board.eventQ.forEach(function(el){
-      el.func.apply(null, el.args);
-    });
-  });
+    utils.board.eventQ.forEach( function( el ) {
+      el.func.apply( null, el.args );
+    } );
+  } );
 
   return utils.board;
 };

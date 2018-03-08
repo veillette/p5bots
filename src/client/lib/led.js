@@ -1,4 +1,4 @@
-var utils = require('./socket_utils.js');
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds led-specific methods to pin object. Called via special.
@@ -6,9 +6,9 @@ var utils = require('./socket_utils.js');
  * @param  {Object} pin
  * @return {Object} mutated pin
  */
-function led(pin) {
-  utils.dispatch(utils.pinInit(pin.pin, pin.mode, pin.direction));
-  utils.constructFuncs(pin);
+function led( pin ) {
+  utils.dispatch( utils.pinInit( pin.pin, pin.mode, pin.direction ) );
+  utils.constructFuncs( pin );
 
 
   // this is a little hacky but I am only a little sorry
@@ -17,31 +17,33 @@ function led(pin) {
   pin.on = function() {
 
     function ledOn() {
-      utils.socket.emit('blink cancel');
-      if(this.mode !== 'pwm') {
-        this.write('HIGH');
-      } else {
-        this.write(255);
+      utils.socket.emit( 'blink cancel' );
+      if ( this.mode !== 'pwm' ) {
+        this.write( 'HIGH' );
+      }
+      else {
+        this.write( 255 );
       }
     }
 
-    utils.dispatch(ledOn.bind(this));
+    utils.dispatch( ledOn.bind( this ) );
 
   };
 
   pin.off = function() {
 
     function ledOff() {
-      utils.socket.emit('blink cancel');
+      utils.socket.emit( 'blink cancel' );
 
-      if(this.mode !== 'pwm') {
-        this.write('LOW');
-      } else {
-        this.write(0);
+      if ( this.mode !== 'pwm' ) {
+        this.write( 'LOW' );
+      }
+      else {
+        this.write( 0 );
       }
     }
 
-    utils.dispatch(ledOff.bind(this));
+    utils.dispatch( ledOff.bind( this ) );
 
   };
 
@@ -55,46 +57,48 @@ function led(pin) {
    * @param  {Number} [increment=200]   Time taken for each step, in ms
    *
    */
-  pin.fade = function(start, stop, totalTime, increment) {
+  pin.fade = function( start, stop, totalTime, increment ) {
     function ledFade() {
 
       this.mode = 'pwm';
 
       var totalTime = totalTime || 3000,
-          inc       = increment || 200;
-      utils.socket.emit('fade', {
+        inc = increment || 200;
+      utils.socket.emit( 'fade', {
         pin: this.pin,
         start: start,
         stop: stop,
         time: totalTime,
-        inc: inc });
+        inc: inc
+      } );
     }
 
-    utils.dispatch(ledFade.bind(this));
+    utils.dispatch( ledFade.bind( this ) );
   };
 
-  pin.blink = function(length) {
+  pin.blink = function( length ) {
 
     ++blinkCounter;
 
     function ledBlink() {
-      utils.socket.emit('blink',{
-        pin: [this.pin],
+      utils.socket.emit( 'blink', {
+        pin: [ this.pin ],
         length: length,
-        id: blinkCounter});
+        id: blinkCounter
+      } );
     }
 
-    utils.dispatch(ledBlink.bind(this));
+    utils.dispatch( ledBlink.bind( this ) );
 
   };
 
   pin.noBlink = function() {
 
     function ledNoBlink() {
-      utils.socket.emit('blink' + blinkCounter + ' cancel');
+      utils.socket.emit( 'blink' + blinkCounter + ' cancel' );
     }
 
-    utils.dispatch(ledNoBlink);
+    utils.dispatch( ledNoBlink );
 
   };
 
