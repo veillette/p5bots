@@ -27,7 +27,7 @@
 There are two steps to get up and running with p5.bots.
 
 ### Bots in the Browser: The Client
-In addition to including `p5.js` in your html file, you will need two other scripts to get p5.bots going: a link to `socket.io`'s CDN or to a version you can download at [socket.io](http://socket.io/download/) and a pointer to the `p5bots.js` file from the [lib directory](https://github.com/sarahgp/p5bots/tree/master/lib).
+In addition to including `p5.js` in your html file, you will need two other scripts to get p5.bots going: a link to `socket.io`'s CDN or to a version you can download at [socket.io](http://socket.io/download/) and a pointer to the `p5bots.js` file from the [lib directory](lib).
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
@@ -36,7 +36,7 @@ In addition to including `p5.js` in your html file, you will need two other scri
 
 
 ### But Wait, There's More: Server-Side Files
-To send messages from the client to the board, you also need to run the p5.bots server files. For more detail on setting up the server and making sure it's working check out the README at [p5bots-server](https://github.com/sarahgp/p5bots/tree/master/src/p5bots-server) & download [p5bots-server from NPM](https://www.npmjs.com/package/p5bots-server).
+To send messages from the client to the board, you also need to run the p5.bots server files. For more detail on setting up the server and making sure it's working check out the README at [p5bots-server](src/p5bots-server) & download [p5bots-server from NPM](https://www.npmjs.com/package/p5bots-server).
 
 ## Using p5.Bots with p5.js
 
@@ -50,7 +50,7 @@ To start communicating with your device, you must first create a board and at le
 p5.board(port, type)
 ```
  
--- PORT: string, see [example README](https://github.com/sarahgp/p5bots/tree/master/examples) for ways to identify your port
+-- PORT: string, see [example README](examples) for ways to identify your port
 -- TYPE: string, probably 'arduino' 
 
 *Example*
