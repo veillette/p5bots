@@ -16,7 +16,7 @@ function setup() {
   createCanvas( 1200, 300 );
   noStroke();
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press the button</p>';
 
   createDiv( innerStr );

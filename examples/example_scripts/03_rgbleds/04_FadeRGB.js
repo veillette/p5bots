@@ -10,7 +10,7 @@ function setup() {
 
   createCanvas( 300, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&darr;</b> Fade </p>';
 
   createDiv( innerStr );

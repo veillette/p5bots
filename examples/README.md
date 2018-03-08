@@ -57,7 +57,7 @@ p.read(function(val){console.log(val);});
 
 function setup() {
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings</p>';
 
   createDiv(innerStr);
@@ -80,7 +80,7 @@ p.read(function(val){console.log(val);});
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings</p>';
 
   createDiv(innerStr);
@@ -107,7 +107,7 @@ function setup() {
   createCanvas(1200, 300);
   noStroke();
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press the button</p>';
 
   createDiv(innerStr);
@@ -222,7 +222,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> LED off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
@@ -261,7 +261,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&darr;</b> Fade </p>';
 
   createDiv(innerStr);
@@ -309,7 +309,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press any key & check out the console for readings</p>';
 
   createDiv(innerStr);
@@ -344,7 +344,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> LED off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
@@ -388,7 +388,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&darr;</b> Fade </p>';
 
   createDiv(innerStr);
@@ -426,7 +426,7 @@ function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Motor on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Motor off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> motor.write(100) </p>';
@@ -459,7 +459,7 @@ var servo;
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> To 15 &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> To 45 &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Sweep &nbsp; | &nbsp;';
@@ -503,7 +503,7 @@ var button;
 function setup() {
   createCanvas(600, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press for Red &nbsp; | &nbsp;';
   innerStr += 'Release for Blue &nbsp; | &nbsp;';
   innerStr += 'Hold for Green </p>';
@@ -560,7 +560,7 @@ var pmeter;
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings &nbsp; | &nbsp;';
   innerStr += 'Press any key to test threshold </p>';
 
@@ -595,7 +595,7 @@ var thermo;
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Write F to console &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Write C to console &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Write raw value to console &nbsp; | &nbsp;';
@@ -640,7 +640,7 @@ var t;
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Write note &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Write frequency &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Does nothing! &nbsp; | &nbsp;';
@@ -684,7 +684,7 @@ function setup() {
 
  createCanvas(300, 200);
 
- var innerStr = '<p style="font-family:Arial;font-size:12px">'
+ var innerStr = '<p style="font-family:Arial;font-size:12px">';
  innerStr += 'Check out log to see values</p>';
 
  createDiv(innerStr);

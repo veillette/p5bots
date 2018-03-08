@@ -10,7 +10,7 @@ var thermo;
 function setup() {
   createCanvas( 300, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Write F to console &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Write C to console &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Write raw value to console &nbsp; | &nbsp;';

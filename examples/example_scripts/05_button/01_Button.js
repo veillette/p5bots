@@ -10,7 +10,7 @@ var button;
 function setup() {
   createCanvas( 600, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press for Red &nbsp; | &nbsp;';
   innerStr += 'Release for Blue &nbsp; | &nbsp;';
   innerStr += 'Hold for Green </p>';

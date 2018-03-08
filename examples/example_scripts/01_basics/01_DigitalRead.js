@@ -10,7 +10,7 @@ p.read( function( val ) {console.log( val );} );
 
 function setup() {
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings</p>';
 
   createDiv( innerStr );

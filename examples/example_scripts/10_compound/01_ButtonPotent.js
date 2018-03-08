@@ -28,7 +28,7 @@ function setup() {
   noStroke();
 
   // Add instructions
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press the button to draw. Turn the knob for size.</p>';
 
   createDiv( innerStr );

@@ -11,7 +11,7 @@ function setup() {
 
   createCanvas( 300, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out log to see values</p>';
 
   createDiv( innerStr );

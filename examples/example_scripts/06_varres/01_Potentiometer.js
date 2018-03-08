@@ -10,7 +10,7 @@ var pmeter;
 function setup() {
   createCanvas( 300, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'See for readings &nbsp; | &nbsp;';
   innerStr += 'Open the console and press any key to test threshold </p>';
 

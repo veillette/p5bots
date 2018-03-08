@@ -12,7 +12,7 @@ function setup() {
 
   createCanvas( 300, 200 );
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">'
+  var innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Motor on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Motor off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> motor.write(100) </p>';
