@@ -15,7 +15,7 @@ function servo( pin ) {
 
   // Overwrite default write returned from construct funcs with servoWrite
   pin.write = function( arg ) {
-    var fire = utils.socketGen( 'servo', 'write', pin.pin );
+    var fire = utils.socketGen( 'servo', 'write', pin );
     utils.dispatch( fire, arg );
   };
 

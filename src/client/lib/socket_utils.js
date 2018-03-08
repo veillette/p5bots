@@ -118,8 +118,7 @@ var utils = {
    *
    * @param  {String} kind      digital | analog
    * @param  {String} direction input | output
-   * @param  {Number} pin       pin number on board, analog pins can
-   *                            just pass the number without A
+   * @param  {Object} pin       Object pin
    *
    */
   socketGen: function( kind, direction, pin ) {
