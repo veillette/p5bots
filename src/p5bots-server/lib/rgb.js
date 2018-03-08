@@ -1,101 +1,102 @@
-var gamma = require('./gamma.js');
+var gamma = require( './gamma.js' );
 
-exports.write = function rgbWrite(board, socket) {
-  socket.on('rgb write', function(data) {
-    var keys = Object.keys(data);
-    keys.forEach(function(key){
-      board.pinMode(data[key][0], board.MODES.PWM);
-      board.analogWrite(data[key][0], gamma[data[key][1]]);
-    });
-  });
+exports.write = function rgbWrite( board, socket ) {
+  socket.on( 'rgb write', function( data ) {
+    var keys = Object.keys( data );
+    keys.forEach( function( key ) {
+      board.pinMode( data[ key ][ 0 ], board.MODES.PWM );
+      board.analogWrite( data[ key ][ 0 ], gamma[ data[ key ][ 1 ] ] );
+    } );
+  } );
 };
 
-exports.read = function rgbRead(board, socket) {
-  socket.on('rgb read', function(data){
+exports.read = function rgbRead( board, socket ) {
+  socket.on( 'rgb read', function( data ) {
     var pins = data.pins,
-        pKeys = Object.keys(pins);
+      pKeys = Object.keys( pins );
 
-    pKeys.forEach(function(key) {
-      var val = board.pins[pins[key]].value;
+    pKeys.forEach( function( key ) {
+      var val = board.pins[ pins[ key ] ].value;
       socket.emit( 'rgb return ' + key, { type: key, val: val } );
-    });
-  });
+    } );
+  } );
 };
 
-exports.blink = function rgbBlink(board, socket) {
+exports.blink = function rgbBlink( board, socket ) {
 
-  socket.on('rgb blink', function(data){
-    var pinsArray = Object.keys(data.pins),
-        length = data.length || 500,
-        idsArray = [];
+  socket.on( 'rgb blink', function( data ) {
+    var pinsArray = Object.keys( data.pins ),
+      length = data.length || 500,
+      idsArray = [];
 
-    pinsArray.forEach(function(key){
-      var ledPin = data.pins[key][0],
-          ledOn = true;
+    pinsArray.forEach( function( key ) {
+      var ledPin = data.pins[ key ][ 0 ],
+        ledOn = true;
 
-      board.pinMode(ledPin, board.MODES.PWM);
+      board.pinMode( ledPin, board.MODES.PWM );
 
-      var blinkID = setInterval(function() {
-        if (ledOn) {
+      var blinkID = setInterval( function() {
+        if ( ledOn ) {
           // Always refer back to array to be sure we are writing
           // the initial color
-          board.analogWrite(ledPin, gamma[data.pins[key][1]]);
-        } else {
-          board.analogWrite(ledPin, 0);
+          board.analogWrite( ledPin, gamma[ data.pins[ key ][ 1 ] ] );
+        }
+        else {
+          board.analogWrite( ledPin, 0 );
         }
 
         ledOn = !ledOn;
 
-      }, length);
+      }, length );
 
-      idsArray.push(blinkID);
-    });
+      idsArray.push( blinkID );
+    } );
 
 
-    socket.on('rgb blink cancel', function(data) {
-      idsArray.forEach(function(id) {
-        clearInterval(id);
-      });
-    });
-  });
+    socket.on( 'rgb blink cancel', function( data ) {
+      idsArray.forEach( function( id ) {
+        clearInterval( id );
+      } );
+    } );
+  } );
 };
 
-exports.fade = function rgbFade(board, socket) {
-  socket.on('rgb fade', function(data) {
+exports.fade = function rgbFade( board, socket ) {
+  socket.on( 'rgb fade', function( data ) {
 
-    var keys = Object.keys(data),
-        mult;
+    var keys = Object.keys( data ),
+      mult;
 
-    function nextVal(a, b) {
+    function nextVal( a, b ) {
       return a + mult * b;
     }
 
-    keys.forEach(function(key) {
-      var el = data[key];
+    keys.forEach( function( key ) {
+      var el = data[ key ];
 
-      var time     = el.time,
-          start    = el.start,
-          stop     = el.stop,
-          inc      = el.inc,
-          steps    = time / inc,
-          span     = Math.abs(start - stop),
-          vps      = span / steps,
-          val      = start;
+      var time = el.time,
+        start = el.start,
+        stop = el.stop,
+        inc = el.inc,
+        steps = time / inc,
+        span = Math.abs( start - stop ),
+        vps = span / steps,
+        val = start;
 
       mult = stop > start ? 1 : -1;
 
-      board.pinMode(el.pin, board.MODES.PWM);
+      board.pinMode( el.pin, board.MODES.PWM );
 
-      function setStep(num){
-        setTimeout(function(){
-          board.analogWrite(el.pin, gamma[val]);
-          val = nextVal(val, vps);
-        }, num * inc);
+      function setStep( num ) {
+        setTimeout( function() {
+          board.analogWrite( el.pin, gamma[ val ] );
+          val = nextVal( val, vps );
+        }, num * inc );
       }
 
-      for (var i = 0; i <= steps; i++){
-        setStep(i);
+      for ( var i = 0; i <= steps; i++ ) {
+        setStep( i );
       }
-    });
-  });
+    } );
+  } );
 };
