@@ -57,7 +57,7 @@ function rgb(pin) {
   };
 
   /**
-   * The RGB read reassmbles values returned from each pin into a
+   * The RGB read resembles values returned from each pin into a
    * p5.Color object and then sets both the pin.val property and the
    * pin.color, in addition to calling the user-provided callback
    * with said value
@@ -77,7 +77,7 @@ function rgb(pin) {
       });
 
       /**
-       * This method handles the async reasembly by populating the incoming
+       * This method handles the async reassembly by populating the incoming
        * color property with socket-received values and then triggering cb
        * when complete
        *
@@ -164,10 +164,10 @@ function rgb(pin) {
    * @param  {Array} red   The 2 required & 2 optional vals, all Numbers:
    *                       start, stop, total run time, increment time,
    *                       the latter two in ms
-   * @param  {Arary} green The 2 required & 2 optional vals, all Numbers:
+   * @param  {Array} green The 2 required & 2 optional vals, all Numbers:
    *                       start, stop, total run time, increment time,
    *                       the latter two in ms
-   * @param  {Arary} blue  The 2 required & 2 optional vals, all Numbers:
+   * @param  {Array} blue  The 2 required & 2 optional vals, all Numbers:
    *                       start, stop, total run time, increment time,
    *                       the latter two in ms
    *
