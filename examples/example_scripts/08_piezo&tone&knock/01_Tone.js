@@ -2,13 +2,13 @@
 // Diagram: diagrams/tone
 
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // Play tones
 var t;
 
 function setup() {
-  createCanvas(300, 200);
+  createCanvas( 300, 200 );
 
   var innerStr = '<p style="font-family:Arial;font-size:12px">'
   innerStr += '<b>&larr;</b> Write note &nbsp; | &nbsp;';
@@ -16,24 +16,27 @@ function setup() {
   innerStr += '<b>&uarr;</b> Does nothing! &nbsp; | &nbsp;';
   innerStr += '<b>&darr;</b> No Tone </p>';
 
-  createDiv(innerStr);
+  createDiv( innerStr );
 
 
-  t = b.pin(8, 'TONE'); // Can also set mode to 'PIEZO'
+  t = b.pin( 8, 'TONE' ); // Can also set mode to 'PIEZO'
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    console.log('note');
-    t.tone('e7', 10000)
-  } else if (keyCode === RIGHT_ARROW) {
-    console.log('freq');
-    t.tone(600, 400);
-  } else if (keyCode === UP_ARROW) {
-    console.log('up does nothing!!');
-    console.log(t);
-  } else if (keyCode === DOWN_ARROW) {
-    console.log('nT')
+  if ( keyCode === LEFT_ARROW ) {
+    console.log( 'note' );
+    t.tone( 'e7', 10000 )
+  }
+  else if ( keyCode === RIGHT_ARROW ) {
+    console.log( 'freq' );
+    t.tone( 600, 400 );
+  }
+  else if ( keyCode === UP_ARROW ) {
+    console.log( 'up does nothing!!' );
+    console.log( t );
+  }
+  else if ( keyCode === DOWN_ARROW ) {
+    console.log( 'nT' )
     t.noTone();
   }
 }

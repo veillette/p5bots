@@ -2,14 +2,14 @@
 // Diagram: diagrams/rgb
 
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // RGB LED On/Off/Blink
 var rgb, c;
 
 function setup() {
 
-  createCanvas(300, 200);
+  createCanvas( 300, 200 );
 
   var innerStr = '<p style="font-family:Arial;font-size:12px">'
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
@@ -17,24 +17,27 @@ function setup() {
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
   innerStr += '<b>&darr;</b> Stop Blinking </p>';
 
-  createDiv(innerStr);
+  createDiv( innerStr );
 
-  rgb = b.pin({r: 9, g: 10, b: 11}, b.RGBLED);
-  c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
-  rgb.write(c);
-  fill(c);
+  rgb = b.pin( { r: 9, g: 10, b: 11 }, b.RGBLED );
+  c = color( Math.floor( Math.random() * 255 ), Math.floor( Math.random() * 255 ), Math.floor( Math.random() * 255 ) );
+  rgb.write( c );
+  fill( c );
   noStroke();
-  ellipse(150, 100, 40, 40);
+  ellipse( 150, 100, 40, 40 );
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW){
+  if ( keyCode === LEFT_ARROW ) {
     rgb.on();
-  } else if (keyCode === RIGHT_ARROW) {
+  }
+  else if ( keyCode === RIGHT_ARROW ) {
     rgb.off();
-  } else if (keyCode === UP_ARROW){
+  }
+  else if ( keyCode === UP_ARROW ) {
     rgb.blink();
-  } else if (keyCode === DOWN_ARROW) {
+  }
+  else if ( keyCode === DOWN_ARROW ) {
     rgb.noBlink();
   }
 }

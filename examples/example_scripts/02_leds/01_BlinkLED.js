@@ -2,15 +2,15 @@
 // Diagram: diagrams/led
 
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // Blink LED
 var led;
 
 function setup() {
-  led = b.pin(9, 'LED');
+  led = b.pin( 9, 'LED' );
 
-  createCanvas(300, 200);
+  createCanvas( 300, 200 );
 
   var innerStr = '<p style="font-family:Arial;font-size:12px">'
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
@@ -18,17 +18,20 @@ function setup() {
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
   innerStr += '<b>&darr;</b> Stop Blinking </p>';
 
-  createDiv(innerStr);
+  createDiv( innerStr );
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW){
+  if ( keyCode === LEFT_ARROW ) {
     led.on();
-  } else if (keyCode === RIGHT_ARROW) {
+  }
+  else if ( keyCode === RIGHT_ARROW ) {
     led.off();
-  } else if (keyCode === UP_ARROW){
+  }
+  else if ( keyCode === UP_ARROW ) {
     led.blink();
-  } else if (keyCode === DOWN_ARROW) {
+  }
+  else if ( keyCode === DOWN_ARROW ) {
     led.noBlink();
   }
 }

@@ -2,27 +2,27 @@
 // Diagram: diagrams/led
 
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // Click the circle to light the LED
 
 var pin;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas( 400, 400 );
   noStroke();
-  fill(62, 0, 255);
-  ellipse(width/2, height/2, 100, 100);
-  pin = b.pin(9, 'DIGITAL', 'OUTPUT');
+  fill( 62, 0, 255 );
+  ellipse( width / 2, height / 2, 100, 100 );
+  pin = b.pin( 9, 'DIGITAL', 'OUTPUT' );
 }
 
 function mousePressed() {
-  var d = dist(width/2, height/2, mouseX, mouseY);
-  if (d < 100) {
-    pin.write('HIGH');
+  var d = dist( width / 2, height / 2, mouseX, mouseY );
+  if ( d < 100 ) {
+    pin.write( 'HIGH' );
   }
 }
 
 function mouseReleased() {
-  pin.write('LOW');
+  pin.write( 'LOW' );
 }

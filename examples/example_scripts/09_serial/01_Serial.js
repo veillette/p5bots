@@ -7,8 +7,8 @@ function setup() {
   serial = p5.serial();
   serial.list();
 
-  serial.connect('COM3');
+  serial.connect( 'COM3' );
 
   // Open console to read values
-  serial.read(function(data){ console.log(data); })
+  serial.read( function( data ) { console.log( data ); } )
 }

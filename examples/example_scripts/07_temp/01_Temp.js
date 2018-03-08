@@ -2,13 +2,13 @@
 // Diagram: diagrams/temp
 
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // Test all read modes
 var thermo;
 
 function setup() {
-  createCanvas(300, 200);
+  createCanvas( 300, 200 );
 
   var innerStr = '<p style="font-family:Arial;font-size:12px">'
   innerStr += '<b>&larr;</b> Write F to console &nbsp; | &nbsp;';
@@ -16,25 +16,28 @@ function setup() {
   innerStr += '<b>&uarr;</b> Write raw value to console &nbsp; | &nbsp;';
   innerStr += '<b>&darr;</b> Write K to console </p>';
 
-  createDiv(innerStr);
+  createDiv( innerStr );
 
 
-  thermo = b.pin({ pin: 0, voltsIn: 5 }, 'TEMP');
+  thermo = b.pin( { pin: 0, voltsIn: 5 }, 'TEMP' );
   thermo.read();
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    console.log('f');
-    console.log(thermo.F);
-  } else if (keyCode === RIGHT_ARROW) {
-    console.log('c');
-    console.log(thermo.C);
-  } else if (keyCode === UP_ARROW) {
-    console.log('v');
-    console.log(thermo.val);
-  } else if (keyCode === DOWN_ARROW) {
-    console.log('k')
-    console.log(thermo.K);
+  if ( keyCode === LEFT_ARROW ) {
+    console.log( 'f' );
+    console.log( thermo.F );
+  }
+  else if ( keyCode === RIGHT_ARROW ) {
+    console.log( 'c' );
+    console.log( thermo.C );
+  }
+  else if ( keyCode === UP_ARROW ) {
+    console.log( 'v' );
+    console.log( thermo.val );
+  }
+  else if ( keyCode === DOWN_ARROW ) {
+    console.log( 'k' )
+    console.log( thermo.K );
   }
 }
