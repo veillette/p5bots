@@ -11,7 +11,7 @@ These are the files necessary for the server end of the p5bots setup. While the 
 3. Write down the port your board is using; you may need it later.
 
 ### Javascript
-1. Install node & npm if you haven't already; be sure you have node 0.12.x+ and npm 2.0.x+. Installing and updating node with [homebrew](http://blog.teamtreehouse.com/install-node-js-npm-mac) is probably the easiest approach. You can [update npm using npm](https://docs.npmjs.com/getting-started/installing-node).
+1. Install node & npm if you haven't already; be sure you have node 0.12.x+ and npm 2.0.x+. Installing nodejs and npm by following these [instructions](http://blog.teamtreehouse.com/install-node-js-npm-windows) is probably the easiest approach. You can [update npm using npm](https://docs.npmjs.com/getting-started/installing-node).
 2. Install p5bots server. It's easier to use if you do it globally: 
 ```
 npm install -g p5bots-server
