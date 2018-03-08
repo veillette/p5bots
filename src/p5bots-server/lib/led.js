@@ -22,6 +22,10 @@ exports.blink = function blink( board, socket ) {
       clearInterval( blinkID );
     } );
 
+    socket.on( 'blink cancel', function() {
+      clearInterval( blinkID );
+    } );
+
   } );
 };
 
