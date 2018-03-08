@@ -1,14 +1,6 @@
 // RGB LED: Blink the RGB LED
 // Diagram: diagrams/rgb
 
-// Uncomment the lines below to log ports to the console
-// p5.serial().list(function(data) {
-//   console.log('serial list:');
-//   data.ports.forEach(function(port) {
-//     console.log(port.comName);
-//   });
-// });
-
 // Board setup — you may need to change the port
 var b = p5.board('COM3', 'arduino');
 
