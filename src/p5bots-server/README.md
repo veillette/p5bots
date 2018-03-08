@@ -64,7 +64,7 @@ If you get an error telling you the board cannot be found, or something like:
 Error: Error: Cannot open COM3
 ```
 
-you may have to adjust [the board declaration in `quicktest.js`](https://github.com/sarahgp/p5bots/blob/master/src/p5bots-server/example/quicktest.js#L53).
+you may have to adjust [the board declaration in `quicktest.js`](src/p5bots-server/example/quicktest.js#L53).
 
 Either use the port you noted down in setup, assuming you haven't moved the board, or check out the console, where we are listing the ports via the serial command. The one that looks like `/dev/cu.*` is likely the one you need.
 
