@@ -66,7 +66,7 @@ Error: Error: Cannot open COM3
 
 you may have to adjust [the board declaration in `quicktest.js`](example/quicktest.js#L53).
 
-Either use the port you noted down in setup, assuming you haven't moved the board, or check out the console, where we are listing the ports via the serial command. The one that looks like `/dev/cu.*` is likely the one you need.
+Either use the port you noted down in setup, assuming you haven't moved the board, or check out the console, where we are listing the ports via the serial command. The communications port, 'COM', with the largest number is likely the one you need.
 
 ### Installing via NPM
 If when installing the package you get something like:
