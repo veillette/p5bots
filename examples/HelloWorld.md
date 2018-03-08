@@ -2,7 +2,7 @@
 
 Hello World is the traditional first program to be written when one is beginning a new language. In software, this means printing the string "Hello, World". In hardware, this means blinking an LED. Since p5.bots bridges the line, we'll do both!
 
-**Note:** This tutorial assumes you are working on a Mac, have administrator rights on your machine.
+**Note:** This tutorial assumes you are working on a Windows machine, have administrator rights on your machine.
 
 ### Prerequisites
 1. Node 0.12.x+
@@ -12,7 +12,9 @@ Hello World is the traditional first program to be written when one is beginning
 5. 220 Ohm resistor
 6. Breadboard, wire
 
-If you need help with node or NPM, check out [the guide at Treehouse](http://blog.teamtreehouse.com/install-node-js-npm-mac).
+
+If you need help with node or NPM, check out [the guide at Treehouse](http://blog.teamtreehouse.com/install-node-js-npm-windows)
+whereas for a [MAC](http://blog.teamtreehouse.com/install-node-js-npm-mac).
 
 ### Get Your Arduino Ready
 To use p5.bots, our Arduino needs to have the Standard Firmata sketch uploaded to it. This sketch tells our Arduino how to interpret the commands p5bots sends.
@@ -157,9 +159,9 @@ The short leg of the LED will be wired to GND, ground. Wires going to ground are
 
 The other leg will be connected to a resistor (they will be plugged in to the same row). The resistor protects the LED from getting too much power at once.
 
-Finally, the LED will be connected to pin 9 on the Arduino board. Becuase we will send information over this wire, it is yellow. In this case, the information is just a signal as to whether to let power run into the circuit or not.
+Finally, the LED will be connected to pin 9 on the Arduino board. Because we will send information over this wire, it is yellow. In this case, the information is just a signal as to whether to let power run into the circuit or not.
 
-You can test that your setup is working by plugging the Arduino into the computer and taking the wire that is in pin 9 and putting it into 3.3V. If the LED lights, the citcuit is okay. Now, move the wire back to 9 and keep the Arduino plugged in.
+You can test that your setup is working by plugging the Arduino into the computer and taking the wire that is in pin 9 and putting it into 3.3V. If the LED lights, the circuit is okay. Now, move the wire back to 9 and keep the Arduino plugged in.
 
 ### Start the Server
 Now we need to open the gates and let the two talk. 
