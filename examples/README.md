@@ -23,12 +23,12 @@ Or peruse the examples below and morph them to make your own!
 
 ### Finding Your Port
 
-The examples may fail if your port has a different name than the default port: `COM3`, aka the left-side USB port on a MacBook Air.
+The examples may fail if your port has a different name than the default port: `COM3`. On windows, you can find the communications port by using 
+the Device Manager.
 
 Common ports include:
 
 ```js
-COM3 // MacBook Air, left side
 /dev/cu.usbmodem1411 // MacBook Air, right side; MacBook, left side
 /dev/cu.usbmodem1451 // MacBook, right side
 ```
