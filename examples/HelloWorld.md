@@ -58,7 +58,7 @@ We will also tell it about our sketch file.
 
 ```html
 <body>
-  <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <script src="scripts/p5.min.js"></script>
   <script src="scripts/p5bots.js"></script>
   <script src="sketch.js"></script>

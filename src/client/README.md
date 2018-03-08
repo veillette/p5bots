@@ -30,7 +30,7 @@ There are two steps to get up and running with p5.bots.
 In addition to including `p5.js` in your html file, you will need two other scripts to get p5.bots going: a link to `socket.io`'s CDN or to a version you can download at [socket.io](http://socket.io/download/) and a pointer to the `p5bots.js` file from the [lib directory](https://github.com/sarahgp/p5bots/tree/master/lib).
 
 ```html
-<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script src="/p5_scripts/p5bots.js"></script>
 ```
 
