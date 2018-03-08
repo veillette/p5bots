@@ -28,8 +28,8 @@ To use p5.bots, our Arduino needs to have the Standard Firmata sketch uploaded t
 2. Install p5bots-server by running: `npm install -g p5bots-server`
 
 ### Get p5.js and p5.bots 
-1. [Download `p5.js`.](https://github.com/processing/p5.js/releases/download/0.4.8/p5.zip)
-2. [Download `p5.bots`.](https://raw.githubusercontent.com/sarahgp/p5bots/master/lib/p5bots.js)
+1. [Download `p5.js`.](https://github.com/processing/p5.js/releases/download/0.6.0/p5.zip)
+2. [Download `p5.bots`.](https://raw.githubusercontent.com/veillette/p5bots/master/lib/p5bots.js)
 
 ### Get Our Folders Ready
 Next, we need to create a place to put our project.
