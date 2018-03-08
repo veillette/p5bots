@@ -47,7 +47,7 @@ Ready to go? Good entry points include:
 * reading about [the client API](src/client/README.md), which lists the methods you can use in your p5 code and covers setting up in detail, and [p5bots-server](https://github.com/sarahgp/p5bots/tree/master/src/p5bots-server)
 * or, [heading over to p5.js to learn more about the drawing library](http://p5js.org/)
 
-## Finding Infomation
+## Finding Information
 Detailed explanations of functionality have been broken up by subject:
   - Getting set up and using the library with p5.js: [p5.bots API](src/client/README.md)  
   - Setting up and testing the server files: [p5.bots server](src/p5bots-server/)
