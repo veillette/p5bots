@@ -25,7 +25,7 @@ function setup() {
 function keyPressed() {
   if ( keyCode === LEFT_ARROW ) {
     console.log( 'note' );
-    t.tone( 'e7', 10000 )
+    t.tone( 'e7', 10000 );
   }
   else if ( keyCode === RIGHT_ARROW ) {
     console.log( 'freq' );
@@ -36,7 +36,7 @@ function keyPressed() {
     console.log( t );
   }
   else if ( keyCode === DOWN_ARROW ) {
-    console.log( 'nT' )
+    console.log( 'nT' );
     t.noTone();
   }
 }
