@@ -15,7 +15,6 @@
   "unused": "vars",
   "maxlen": 80,
   "node": true,
-
   "browser": true,
   "globals": {
     "module": false,

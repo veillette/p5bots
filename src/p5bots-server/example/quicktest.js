@@ -36,13 +36,13 @@
 // Client-Side Sandbox     //
 /////////////////////////////
 
-console.log('quicktest');
-console.log('serial list:');
-p5.serial().list(function(data) {
-  data.ports.forEach(function(port) {
-    console.log(port.comName);
-  });
-});
+console.log( 'quicktest' );
+console.log( 'serial list:' );
+p5.serial().list( function( data ) {
+  data.ports.forEach( function( port ) {
+    console.log( port.comName );
+  } );
+} );
 
 
 //////////////////////
@@ -50,7 +50,7 @@ p5.serial().list(function(data) {
 //////////////////////
 
 // // Board setup for all funcs — obviously you may need to change the port
-var b = p5.board('COM3', 'arduino');
+var b = p5.board( 'COM3', 'arduino' );
 
 // // Test digital write
 // var p = b.pin(9, 'DIGITAL', 'OUTPUT');
@@ -232,22 +232,25 @@ var b = p5.board('COM3', 'arduino');
 var rgb, c;
 
 function setup() {
-  rgb = b.pin({r: 9, g: 10, b: 11}, b.RGBLED);
-  c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
-  rgb.write(c);
-  fill(c);
+  rgb = b.pin( { r: 9, g: 10, b: 11 }, b.RGBLED );
+  c = color( Math.floor( Math.random() * 255 ), Math.floor( Math.random() * 255 ), Math.floor( Math.random() * 255 ) );
+  rgb.write( c );
+  fill( c );
   noStroke();
-  ellipse(80, 80, 40, 40);
+  ellipse( 80, 80, 40, 40 );
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW){
+  if ( keyCode === LEFT_ARROW ) {
     rgb.on();
-  } else if (keyCode === RIGHT_ARROW) {
+  }
+  else if ( keyCode === RIGHT_ARROW ) {
     rgb.off();
-  } else if (keyCode === UP_ARROW){
+  }
+  else if ( keyCode === UP_ARROW ) {
     rgb.blink();
-  } else if (keyCode === DOWN_ARROW) {
+  }
+  else if ( keyCode === DOWN_ARROW ) {
     rgb.noBlink();
   }
 }
