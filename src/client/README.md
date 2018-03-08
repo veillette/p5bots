@@ -116,7 +116,7 @@ All pins have read and write methods. These basic methods are sometimes overwrit
 
 ```js
 // each time a value changes pin.val will be updated + optional callback function will be called 
-pin.read([callback fn]) 
+pin.read([callbackFunction]) 
 
 // send a value to the pin
 pin.write(val) 
@@ -154,8 +154,9 @@ led.noBlink()
 
 // fades the pin from the start to stop brightness
 // brightness is pwm, 0 to 255; time is in ms
-// default total is 3000, interval is 200
-led.fade([start, stop, [, total time, interval]])
+// times are optional
+// default totalTime is 3000 ms, interval is 200 ms
+led.fade([start, stop, totalTime, interval])
 ```
 
 #### RGB LED Methods
@@ -207,9 +208,10 @@ rgb.noBlink()
 
 // fades the pin from the start to stop brightness
 // brightness is pwm, 0 to 255; time is in ms
-// default total is 3000, interval is 200
-// each pin is specified separately
-rgb.fade([start, stop, [, total time, interval]], [start, stop, [, total time, interval]], [start, stop, [, total time, interval]])
+// times are optional
+// default total is 3000 ms, interval is 200 ms
+// the three pins (red, green and blue) are specified separately
+rgb.fade([start, stop, totalTime, interval], [start, stop, totalTime, interval], [start, stop, totalTime, interval])
 ```
 
 #### MOTOR Methods
@@ -278,11 +280,11 @@ All three button methods work as special `read` methods by taking functions to b
 button = board.pin(num, 'BUTTON')
 
 // each method takes a callback to be called when the button is pressed or released
-button.pressed(cb)
-button.released(cb)
+button.pressed(callbackFunction)
+button.released(callbackFunction)
 
 // hold also requires a threshold to trigger, a time specified in ms
-button.held(cb, int)
+button.held(callbackFunction, int)
 ```
 
 #### VRES Methods
@@ -297,7 +299,7 @@ vr = board.pin(num, 'VRES')
 vr.range([int, int]) 
 
 // works like standard read function: sets vr.val and calls callback on each value change
-vr.read([cb])
+vr.read([callbackFunction])
 
 // sets threshold value
 vr.threshold(int)
@@ -367,7 +369,7 @@ Because `serial.read` works in the node style of accepting a callback function i
 
 ```js
 // Like the processing API
-serial.readEvent([callback function])
+serial.readEvent([callbackFunction])
 
 // Returns data value
 serial.readData()
