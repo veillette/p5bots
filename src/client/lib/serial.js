@@ -11,7 +11,7 @@ var utils = require( './socket_utils.js' ),
 var serial = function() {
 
   /**
-   * Passes through data to a node-serialport instatiation
+   * Passes through data to a node-serialport instantiation
    * @param  {String} path   Port used
    * @param  {Object} config Config options, can use any listed
    *                         for node-serialport
