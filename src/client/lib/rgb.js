@@ -159,7 +159,7 @@ function rgb( pin ) {
   };
 
   /**
-   * Unpacks fade ararys to send to server, where the math happens :D
+   * Unpacks fade arrays to send to server, where the math happens :D
    *
    * @param  {Array} red   The 2 required & 2 optional vals, all Numbers:
    *                       start, stop, total run time, increment time,
