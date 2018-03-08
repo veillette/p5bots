@@ -50,7 +50,7 @@ To start communicating with your device, you must first create a board and at le
 p5.board(port, type)
 ```
  
--- PORT: string, see [example README](examples) for ways to identify your port
+-- PORT: string, see [example README](../examples) for ways to identify your port
 -- TYPE: string, probably 'arduino' 
 
 *Example*
