@@ -12,7 +12,7 @@ This section contains example implementations for each of the standard and speci
   - [Piezo: Tone & Knock](#piezo-tone--knock)  
   - [Serial](#serial)  
 
-Script files for each of these examples are available in [`example_scripts`](example_scripts). You can determine which is run by editing [this line](https://github.com/sarahgp/p5bots/blob/master/examples/index.html#L13) to point to the script you want to run:
+Script files for each of these examples are available in [`example_scripts`](example_scripts). You can determine which is run by editing [this line](index.html#L13) to point to the script you want to run:
 
 ```html
    <!-- Swap out the script below with any of the others in example_scripts. -->
@@ -23,8 +23,7 @@ Or peruse the examples below and morph them to make your own!
 
 ### Finding Your Port
 
-The examples may fail if your port has a different name than the default port: `COM3`. On windows, you can find the communications port by using 
-the Device Manager.
+The examples may fail if your port has a different name than the default port: `COM3`. On windows, you can find the communications port by using the Device Manager.
 
 Common ports include:
 
@@ -33,10 +32,10 @@ Common ports include:
 /dev/cu.usbmodem1451 // MacBook, right side
 ```
 
-If your computer is not on this list — or if these fail — you can find your port by opening the Arduino IDE and finding the port under `Tools > Port` or by running the following in your Terminal with the Arduino plugged in:
+If your computer is not on this list — or if these fail — you can find your port by opening the Arduino IDE and finding the port under `Tools > Port` or by running the following in the cmd terminal with the Arduino plugged in:
 
-```bash
- ls /dev/tty.*
+```
+ mode
 ```
 
 ## Examples
