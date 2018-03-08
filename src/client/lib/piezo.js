@@ -55,7 +55,7 @@ function piezo(pin) {
   pin.threshold = function(thresh) {
     this.threshold = thresh;
     this.overThreshold = function() {
-      return this.val > this.threshold ? true : false;
+      return this.val > this.threshold;
     };
   };
 
