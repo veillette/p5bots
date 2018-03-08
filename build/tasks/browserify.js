@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     // Render the banner for the top of the file
     var banner = grunt.template.process(bannerTemplate);
 
-    // Invoke Browserify programatically to bundle the code
+    // Invoke Browserify programmatically to bundle the code
     var bundle = browserify(srcFilePath, {
         standalone: 'p5js'
       })
