@@ -14,7 +14,7 @@ If you'd like to contribute to p5bots development, check out the [issues](https:
 
 Also, examples are always appreciated. See [the examples repo](examples) for what we already have.
 
-### Prerequisities
+### Prerequisites
 1. Node.js
 2. Npm
 3. Git
