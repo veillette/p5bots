@@ -182,4 +182,4 @@ server starting
 ### Hello, World!
 Yay! Everything is running. Open a web browser to `localhost:8000`. Hit the left arrow to turn the LED on; right to turn it off. Hit up and get it blinking.
 
-Now open the console, probably by hitting: `command+option+I`. There should be note for you in the log: the LED is saying hello!
+Now open the console, probably by hitting: `control+shift+J`. There should be note for you in the log: the LED is saying hello!
