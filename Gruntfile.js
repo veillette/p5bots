@@ -13,7 +13,7 @@
  *
  *  grunt test  - This only runs the automated tests, which is faster than
  *                rebuilding entirely from source because it skips minification
- *                and concatination. If you need to debug
+ *                and concatenation. If you need to debug
  *                a test suite in a browser, `grunt test --keepalive` will
  *                start the connect server and leave it running; the tests
  *                can then be opened at localhost:9001/test/test.html
