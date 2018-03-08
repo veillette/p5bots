@@ -78,7 +78,10 @@ function led(pin) {
     ++blinkCounter;
 
     function ledBlink() {
-      utils.socket.emit('blink', { pin: [this.pin], length: length, id: blinkCounter });
+      utils.socket.emit('blink',{
+        pin: [this.pin],
+        length: length,
+        id: blinkCounter});
     }
 
     utils.dispatch(ledBlink.bind(this));

@@ -14,7 +14,8 @@ var express = require( 'express' ),
 var directory, index, program;
 
 function makeAbsolute( filepath ) {
-  return path.isAbsolute( filepath ) ? filepath : process.cwd() + '/' + filepath;
+  if ( path.isAbsolute( filepath ) ) {return filepath;}
+  else {return process.cwd() + '/' + filepath;}
 }
 
 // This both defines options as well as what prints when '--help' is called.

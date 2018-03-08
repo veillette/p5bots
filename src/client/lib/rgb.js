@@ -33,7 +33,7 @@ function rgb(pin) {
 
     this.color = Array.isArray(color) ?  p5.prototype.color(color) : color;
 
-    let red = p5.prototype.red(this.color),
+    var red = p5.prototype.red(this.color),
         green = p5.prototype.green(this.color),
         blue = p5.prototype.blue(this.color);
 
