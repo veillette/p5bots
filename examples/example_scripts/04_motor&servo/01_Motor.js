@@ -10,7 +10,7 @@
 // });
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test motor functionality
 var motor;

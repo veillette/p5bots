@@ -10,7 +10,7 @@
 // });
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 var rgb;
 
@@ -35,5 +35,5 @@ function keyPressed(){
  if (keyCode === DOWN_ARROW) {
   rgb.write([200, 200, 200]);
   rgb.fade([200, 0, 3000], [200, 0, 5000, 50], [200, 0, 1000, 50]);
- } 
+ }
 }

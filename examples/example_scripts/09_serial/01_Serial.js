@@ -7,7 +7,7 @@ function setup() {
   serial = p5.serial();
   serial.list();
 
-  serial.connect('/dev/cu.usbmodem1421');
+  serial.connect('COM3');
 
   // Open console to read values
   serial.read(function(data){ console.log(data); })

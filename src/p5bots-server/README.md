@@ -61,7 +61,7 @@ For other examples, check out `p5bots-server/example/quicktest.js` and try other
 If you get an error telling you the board cannot be found, or something like:
 
 ```js
-Error: Error: Cannot open /dev/cu.usbmodem1421
+Error: Error: Cannot open COM3
 ```
 
 you may have to adjust [the board declaration in `quicktest.js`](https://github.com/sarahgp/p5bots/blob/master/src/p5bots-server/example/quicktest.js#L53).

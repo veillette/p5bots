@@ -23,12 +23,12 @@ Or peruse the examples below and morph them to make your own!
 
 ### Finding Your Port
 
-The examples may fail if your port has a different name than the default port: `/dev/cu.usbmodem1421`, aka the left-side USB port on a MacBook Air.
+The examples may fail if your port has a different name than the default port: `COM3`, aka the left-side USB port on a MacBook Air.
 
 Common ports include:
 
 ```js
-/dev/cu.usbmodem1421 // MacBook Air, left side
+COM3 // MacBook Air, left side
 /dev/cu.usbmodem1411 // MacBook Air, right side; MacBook, left side
 /dev/cu.usbmodem1451 // MacBook, right side
 ```
@@ -49,7 +49,7 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test digital read
 var p = b.pin(9, 'DIGITAL', 'INPUT');
@@ -71,7 +71,7 @@ _diagram: potentiometer_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test analog read
 var p = b.pin(0, 'ANALOG', 'INPUT');
@@ -94,7 +94,7 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Draw ellipses with a button
 
@@ -128,7 +128,7 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Click the circle to light the LED
  
@@ -158,7 +158,7 @@ Alternately, integrated with p5.DOM element.
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Click a button to light the LED
 
@@ -186,7 +186,7 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // PWM Slider
 
@@ -212,7 +212,7 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Blink LED 
 var led;
@@ -250,7 +250,7 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Fade LED 
 
@@ -283,7 +283,7 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 function setup() {
   var rgb = b.pin({r: 9, g: 10, b: 11}, 'RGBLED');
@@ -301,7 +301,7 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 var rgb, c;
 
@@ -335,7 +335,7 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // RGB LED On/Off/Blink
 var rgb, c;
@@ -379,7 +379,7 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Fade RGB
 var rgb;
@@ -416,7 +416,7 @@ _diagram: motor_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test motor functionality
 var motor;
@@ -451,7 +451,7 @@ _diagram: servo_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test servo functionality
 var servo;
@@ -495,7 +495,7 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test Pressed, Held, Released
 var button;
@@ -552,7 +552,7 @@ _diagram: potentiometer_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test Read & Threshold
 var pmeter;
@@ -587,7 +587,7 @@ This example uses a [TS-195 analog temperature sensor](http://tinkersphere.com/s
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test all read modes
 var thermo;
@@ -632,7 +632,7 @@ _diagram: tone_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Play tones
 var t;
@@ -675,7 +675,7 @@ _diagram: knock_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Get ready to knock
 var k;
@@ -712,7 +712,7 @@ function setup() {
   serial = p5.serial();
   serial.list();
 
-  serial.connect('/dev/cu.usbmodem1421');
+  serial.connect('COM3');
 
   // Open console to read values
   serial.read(function(data){ console.log(data); })

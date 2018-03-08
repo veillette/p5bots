@@ -1,5 +1,5 @@
 suite('Variable resistor', function() {
-  var b = p5.board('/dev/cu.usbmodem1421', 'arduino'),
+  var b = p5.board('COM3', 'arduino'),
       vres = b.pin(0, 'VRES');
 
   test('pin set correctly', function() {

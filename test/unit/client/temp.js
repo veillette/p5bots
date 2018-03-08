@@ -1,5 +1,5 @@
 suite('Temp', function() {
-  var b = p5.board('/dev/cu.usbmodem1421', 'arduino'),
+  var b = p5.board('COM3', 'arduino'),
       temp = b.pin({ pin: 0, voltsIn: 5 }, 'TEMP');
 
   test('pin set correctly', function() {

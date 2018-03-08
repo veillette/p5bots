@@ -1,4 +1,4 @@
-// Variable Resistor: Potentiometer 
+// Variable Resistor: Potentiometer
 // Diagram: diagrams/potentiometer
 
 // Uncomment the lines below to log ports to the console
@@ -10,7 +10,7 @@
 // });
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test Read & Threshold
 var pmeter;
@@ -33,11 +33,11 @@ function setup() {
 
   pmeter.range([10, 400]);
   pmeter.threshold(600);
-  
+
 }
 
 function draw(){
-  
+
 }
 
 function keyPressed() {

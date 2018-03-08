@@ -1,4 +1,4 @@
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 suite('Piezo', function() {
 

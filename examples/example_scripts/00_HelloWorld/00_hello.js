@@ -1,4 +1,4 @@
-var b = p5.board('/dev/cu.usbmodem1411', 'arduino');
+var b = p5.board('COM3', 'arduino');
 var led;
 
 function setup() {
@@ -12,7 +12,7 @@ function keyPressed() {
     led.off();
   } else if (keyCode === UP_ARROW){
     led.blink();
-    console.log('Hello, World!'); 
+    console.log('Hello, World!');
   } else if (keyCode === DOWN_ARROW) {
     led.noBlink();
   }

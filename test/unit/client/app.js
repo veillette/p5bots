@@ -1,8 +1,8 @@
 var basicBoard = {
       type: 'arduino',
-      port: '/dev/cu.usbmodem1421'
+      port: 'COM3'
     },
-    createdBoard = p5.board('/dev/cu.usbmodem1421', 'arduino'),
+    createdBoard = p5.board('COM3', 'arduino'),
     createdPin;
 
 suite('p5sensors init', function() {

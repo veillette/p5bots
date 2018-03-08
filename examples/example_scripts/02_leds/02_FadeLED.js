@@ -11,9 +11,9 @@
 
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
-// Fade LED 
+// Fade LED
 
 var led;
 
@@ -32,5 +32,5 @@ function keyPressed(){
  if (keyCode === DOWN_ARROW) {
   led.write(200);
   led.fade(200, 0);
- } 
+ }
 }

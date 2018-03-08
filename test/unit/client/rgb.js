@@ -1,6 +1,6 @@
 suite('RGB LED', function() {
 
-  var b = p5.board('/dev/cu.usbmodem1421', 'arduino'),
+  var b = p5.board('COM3', 'arduino'),
       rgb = b.pin({red: 9, green: 10, blue: 11, common: 'cathode'}, 'RGBLED');
 
   test('pin set correctly with full pin names', function() {

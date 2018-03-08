@@ -1,4 +1,4 @@
-// Temp: Temp 
+// Temp: Temp
 // Diagram: diagrams/temp
 
 // Uncomment the lines below to log ports to the console
@@ -10,7 +10,7 @@
 // });
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Test all read modes
 var thermo;

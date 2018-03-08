@@ -5,7 +5,7 @@
 // var firmata = require('firmata');
 // var gamma   = require('./gamma.js')
 
-// var board = new firmata.Board('/dev/cu.usbmodem1421', function(err){
+// var board = new firmata.Board('COM3', function(err){
 //   if (err) {
 //     throw new Error(err);
 //   }
@@ -25,7 +25,7 @@
 //   // setTimeout(function(){
 //   //   board.analogWrite(11, 255);
 //   // }, 2000);
-  
+
 //   // board.pinMode(9, board.MODES.PWM);
 //   // board.analogWrite(9, 0);
 
@@ -50,7 +50,7 @@ p5.serial().list(function(data) {
 //////////////////////
 
 // // Board setup for all funcs — obviously you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // // Test digital write
 // var p = b.pin(9, 'DIGITAL', 'OUTPUT');
@@ -73,7 +73,7 @@ var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 // p.read();
 // setInterval(function() { console.log(p.val) }, 500);
 
-// // Draw ellipses with a button -- these work on the same 
+// // Draw ellipses with a button -- these work on the same
 // // setup as the pin reads
 
 // var p;
@@ -93,7 +93,7 @@ var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 //   }
 // }
 
-// Click the circle to light the LED -- this works on the same 
+// Click the circle to light the LED -- this works on the same
 // setup as the pin writes
 // var pin;
 
@@ -116,14 +116,14 @@ var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 //   pin.write('LOW');
 // }
 
-// // Click a button to light the LED -- this works on the same 
+// // Click a button to light the LED -- this works on the same
 // // setup as the pin writes & uses the p5.dom lib
 
 // function setup() {
 //   createCanvas(400, 400);
 //   var pin = b.pin(9, 'DIGITAL', 'OUTPUT');
 
-  
+
 //   var button = createButton('LIGHT THE LED!!');
 //   button.position(width/2, height/2);
 //   button.mousePressed(function(){
@@ -185,7 +185,7 @@ var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 //  if (keyCode === DOWN_ARROW) {
 //   led.write(200);
 //   led.fade(200, 0);
-//  } 
+//  }
 // }
 
 // // LED Fade in Setup -- Same setup as above [tests queueing]
@@ -195,7 +195,7 @@ var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
 //   led.write(200);
 //   led.fade(200, 0);
 // }
-// 
+//
 
 
 // // RGB LED Write -- Breadboard with common-cathode RGB LED
@@ -262,14 +262,14 @@ function keyPressed() {
 //   rgb.write(c);
 //   fill(c);
 //   noStroke();
-//   ellipse(80, 80, 40, 40); 
+//   ellipse(80, 80, 40, 40);
 // }
 
 // function keyPressed(){
 //  if (keyCode === DOWN_ARROW) {
 //   rgb.write([200, 200, 200]);
 //   rgb.fade([200, 0, 3000], [200, 0, 5000, 500], [200, 0, 1000, 50]);
-//  } 
+//  }
 // }
 
 // // Motor tests -- Breadboard with motor power keyed to pin 9
@@ -290,7 +290,7 @@ function keyPressed() {
 //     motor.write(100);
 //   }
 // }
- 
+
 // Servo Tests -- Servo plugged directly into board and pin 9
 
 // var servo;
@@ -313,7 +313,7 @@ function keyPressed() {
 //    } else if (keyCode === DOWN_ARROW) {
 //      console.log('d')
 //      servo.noSweep();
-//    } 
+//    }
 // }
 
 // // Button tests -- Same as digital and analog read above
@@ -347,14 +347,14 @@ function keyPressed() {
 //     fill(0, 255, 136);
 //     ellipse(300, 100, 40, 40);
 //   }
-  
+
 //   button.read();
 //   button.pressed(redEllipse);
 //   button.released(blueEllipse);
 //   button.held(greenEllipse, 3000);
 
 // }
-// 
+//
 // // Variable Resistor Tests -- Potentiometer hooked up to A0
 // var pmeter;
 
@@ -368,9 +368,9 @@ function keyPressed() {
 // function keyPressed() {
 //   console.log('is over?', pmeter.val, pmeter.overThreshold());
 // }
- 
+
 // Temp Tests -- Temp sensor in A2
- 
+
 // var thermo;
 
 // function setup() {
@@ -417,7 +417,7 @@ function keyPressed() {
 //     t.noTone();
 //   }
 // }
- 
+
 // // Knock Test -- Piezo in A0 and ground
 
 // var k;
@@ -440,9 +440,9 @@ function keyPressed() {
 //   serial = p5.serial();
 //   serial.list();
 
-//   // serial.connect('/dev/cu.usbmodem1421');
+//   // serial.connect('COM3');
 //   // serial.read(function(data){ console.log(data); })
-// }  
+// }
 
 // // User-declared function -- just requires a board
 
@@ -458,6 +458,6 @@ function keyPressed() {
 //     socket.emit('say hi', {message: 'sarahpants!'});
 //   } else if (keyCode === DOWN_ARROW){
 //     console.log('emitting hi, check server for execution');
-//     socket.emit('say hi', {message: 'tiger breath!'}); 
+//     socket.emit('say hi', {message: 'tiger breath!'});
 //   }
 // }

@@ -10,7 +10,7 @@
 // });
 
 // Board setup — you may need to change the port
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 
 // Draw ellipses with a button
 
@@ -19,7 +19,7 @@ var w = window.innerWidth,
     button, potent;
 
 function setup() {
-  // Init button read pin and start read function, 
+  // Init button read pin and start read function,
   // which will change p.val when the read val changes
   button = b.pin(9, 'DIGITAL', 'INPUT');
   button.read();
@@ -46,7 +46,7 @@ function draw() {
   var frameW = w,
       frameH = h,
       r      = potent.val/2;
-  
+
   if (button.val) {
     fill(Math.random() * 255, Math.random() * 255, Math.random() * 255);
     ellipse(Math.random() * frameW, Math.random() * frameH, r, r);

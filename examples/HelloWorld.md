@@ -72,10 +72,10 @@ That's all the code we need in `index.html`. The rest will be in `sketch.js`. Le
   }
 ```
 
-We will want tell p5 about the board and the board about p5. We should also mention that we will be creating an LED pin. Let's put these before setup, since both functions need to know about them. You will want the first argument, where it says `'/dev/cu.usbmodem1421'` to match the port you write down in the Arduino setup.
+We will want tell p5 about the board and the board about p5. We should also mention that we will be creating an LED pin. Let's put these before setup, since both functions need to know about them. You will want the first argument, where it says `'COM3'` to match the port you write down in the Arduino setup.
 
 ```js
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 var led;
 
 function setup(){
@@ -127,7 +127,7 @@ function keyPressed() {
 Bam! That's all the Javascript. Your complete file should look like this:
 
 ```js
-var b = p5.board('/dev/cu.usbmodem1421', 'arduino');
+var b = p5.board('COM3', 'arduino');
 var led;
 
 function setup() {
