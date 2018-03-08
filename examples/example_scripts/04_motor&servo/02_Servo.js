@@ -24,19 +24,19 @@ function setup() {
 
 function keyPressed() {
   if ( keyCode === LEFT_ARROW ) {
-    console.log( 'l' )
+    console.log( 'l' );
     servo.write( 15 );
   }
   else if ( keyCode === RIGHT_ARROW ) {
-    console.log( 'r' )
+    console.log( 'r' );
     servo.write( 45 );
   }
   else if ( keyCode === UP_ARROW ) {
-    console.log( 'u' )
+    console.log( 'u' );
     servo.sweep();
   }
   else if ( keyCode === DOWN_ARROW ) {
-    console.log( 'd' )
+    console.log( 'd' );
     servo.noSweep();
   }
 }
