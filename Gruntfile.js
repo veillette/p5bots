@@ -24,7 +24,7 @@
  */
 
 
-module.exports = function(grunt) {
+module.exports = function( grunt ) {
 
   // Specify what reporter we'd like to use for Mocha
   var reporter = 'Nyan';
@@ -32,37 +32,37 @@ module.exports = function(grunt) {
   // For the static server used in running tests, configure the keepalive.
   // (might not be useful at all.)
   var keepalive = false;
-  if (grunt.option('keepalive')) {
+  if ( grunt.option( 'keepalive' ) ) {
     keepalive = true;
   }
 
 
-  grunt.initConfig({
+  grunt.initConfig( {
 
     // read in the package, used for knowing the current version, et al.
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON( 'package.json' ),
 
     // Configure style consistency checking for this file, the source, and the tests.
     jscs: {
       options: {
         config: '.jscsrc',
-        reporter: require('jscs-stylish').path
+        reporter: require( 'jscs-stylish' ).path
       },
       build: {
         src: [
-        'Gruntfile.js',
-        'build/**/*.js'
+          'Gruntfile.js',
+          'build/**/*.js'
         ]
       },
       source: {
         src: [
-        'src/client/**/*.js',
-        'src/p5bots-server/app.js',
-        'src/p5bots-server/lib/*.js',
+          'src/client/**/*.js',
+          'src/p5bots-server/app.js',
+          'src/p5bots-server/lib/*.js',
         ]
       },
       test: {
-        src: ['test/unit/**/*.js']
+        src: [ 'test/unit/**/*.js' ]
       }
     },
 
@@ -73,8 +73,8 @@ module.exports = function(grunt) {
           jshintrc: '.jshintrc'
         },
         src: [
-        'Gruntfile.js',
-        'build/**/*.js'
+          'Gruntfile.js',
+          'build/**/*.js'
         ]
       },
       source: {
@@ -82,15 +82,15 @@ module.exports = function(grunt) {
           jshintrc: 'src/.jshintrc',
           ignores: [ 'src/external/**/*.js' ]
         },
-        src: ['src/client/**/*.js',
-              'src/p5bots-server/app.js',
-              'src/p5bots-server/lib/*.js']
+        src: [ 'src/client/**/*.js',
+          'src/p5bots-server/app.js',
+          'src/p5bots-server/lib/*.js' ]
       },
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/unit/**/*.js']
+        src: [ 'test/unit/**/*.js' ]
       }
     },
 
@@ -98,8 +98,8 @@ module.exports = function(grunt) {
     watch: {
       // Watch the codebase for changes
       main: {
-        files: ['src/**/*.js'],
-        tasks: ['newer:jshint:source','test', 'jsdoc'],
+        files: [ 'src/**/*.js' ],
+        tasks: [ 'newer:jshint:source', 'test', 'jsdoc' ],
         options: {
           livereload: true
         }
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
     // Set up the mocha-chai-sinon task, used for the automated server-side tests.
     'mocha-chai-sinon': {
       build: {
-        src: ['test/unit/p5bots-server/app.js'],
+        src: [ 'test/unit/p5bots-server/app.js' ],
         options: {
           ui: 'tdd',
           reporter: reporter
@@ -163,32 +163,32 @@ module.exports = function(grunt) {
           base: './',
           port: 9001,
           keepalive: keepalive,
-          middleware: function(connect, options, middlewares) {
-            middlewares.unshift(function(req, res, next) {
-              res.setHeader('Access-Control-Allow-Origin', '*');
-              res.setHeader('Access-Control-Allow-Methods', '*');
+          middleware: function( connect, options, middlewares ) {
+            middlewares.unshift( function( req, res, next ) {
+              res.setHeader( 'Access-Control-Allow-Origin', '*' );
+              res.setHeader( 'Access-Control-Allow-Methods', '*' );
               return next();
-            });
+            } );
             return middlewares;
           }
         }
       }
     }
-  });
+  } );
 
   // Load the external libraries used.
-  grunt.loadTasks('build/tasks');
-  grunt.loadNpmTasks('grunt-jscs');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-mocha-chai-sinon');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-newer');
+  grunt.loadTasks( 'build/tasks' );
+  grunt.loadNpmTasks( 'grunt-jscs' );
+  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+  grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  grunt.loadNpmTasks( 'grunt-mocha' );
+  grunt.loadNpmTasks( 'grunt-mocha-chai-sinon' );
+  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+  grunt.loadNpmTasks( 'grunt-contrib-connect' );
+  grunt.loadNpmTasks( 'grunt-newer' );
 
   // Create the multitasks.
-  grunt.registerTask('build', ['browserify', 'uglify']);
-  grunt.registerTask('test', ['jshint', 'jscs', 'build', 'connect', 'mocha', 'mocha-chai-sinon']);
-  grunt.registerTask('default', ['test']);
+  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
+  grunt.registerTask( 'test', [ 'jshint', 'jscs', 'build', 'connect', 'mocha', 'mocha-chai-sinon' ] );
+  grunt.registerTask( 'default', [ 'test' ] );
 };
