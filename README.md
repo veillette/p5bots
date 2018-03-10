@@ -4,7 +4,7 @@
 * [p5.Serial](#p5serial)
 * [p5.Board](#p5board)
 * [Getting Started](#getting-started)
-* [Finding Informataion](#finding-information)  
+* [Finding Information](#finding-information)
 * [Issues](#issues)
 * [Contributing](#contributing)
 

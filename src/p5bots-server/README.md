@@ -102,7 +102,7 @@ or else install locally.
 -d, --dir <d>        Set base directory for server
 -f, --file <f>       Set file to use for the index page
 -p, --ufilepath <p>  Path to file containing user-defined server-side listeners.
--n, --ufilename <n>  Path, inluding file name, to user-defined server-side listeners.
+-n, --ufilename <n>  Path, including file name, to user-defined server-side listeners.
 ```
 
 You can also find these by running

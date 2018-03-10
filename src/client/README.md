@@ -395,7 +395,7 @@ exports.mine = function mine(board, socket) {
 
 ```
 -p, --ufilepath <p>  Path to file containing user-defined server-side listeners.
--n, --ufilename <n>  Path, inluding file name, to user-defined server-side listeners.
+-n, --ufilename <n>  Path, including file name, to user-defined server-side listeners.
 ```
 
 Path defaults to the current directory and filename to `user.js`.
