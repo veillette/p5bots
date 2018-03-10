@@ -65,8 +65,8 @@ var Pin = function(num, mode, direction){
     this.mode = specialMethods[this.mode].mode;
   }
 
-  this.write = function() { throw new Error('Write undefined') },
-  this.read = function() { throw new Error('Read undefined') }
+  this.write = function() { throw new Error('Write undefined') };
+  this.read = function() { throw new Error('Read undefined') };
 };
 
 Board.prototype.pin = function(num, mode, direction){
@@ -240,7 +240,7 @@ function motor(pin) {
       if(this.mode !== 'pwm') {
         this.write('HIGH');
       } else {
-        this.write(255)
+        this.write(255);
       }
     }
     utils.dispatch(motorOn.bind(this));
@@ -276,7 +276,7 @@ function piezo(pin) {
       this.val = data.val;
 
       utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);
-    };
+    }
 
     var fire = utils.socketGen('analog', 'read', pin);
     utils.dispatch(fire, arg);
@@ -520,7 +520,7 @@ function servo(pin) {
   this.rangeMin = 0;
   this.rangeMax = 45;
 
-  // Overwrite defualt write returned from construct funcs with servoWrite
+  // Overwrite default write returned from constructFuncs with servoWrite
   pin.write = function(arg) {
     var fire = utils.socketGen('servo', 'write', pin);
     utils.dispatch(fire, arg);
@@ -592,20 +592,20 @@ var utils =  {
       this.val = data.val;
 
       utils.readTests[this.special] && utils.readTests[this.special].call(this, data.val);
-    };
+    }
 
     pin.read = function(arg) {
       var fire = utils.socketGen(mode, 'read', pin);
       utils.dispatch(fire, arg);
       socket.on('return val', setVal.bind(this));
       return function nextRead(arg) { fire(arg) };
-    }
+    };
 
     pin.write = function(arg) {
       var fire = utils.socketGen(mode, 'write', pin);
       utils.dispatch(fire, arg);
       return function nextWrite(arg) { fire(arg) };
-    }
+    };
 
     return pin;
   },
