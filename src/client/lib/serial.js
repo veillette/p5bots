@@ -22,7 +22,10 @@ var serial = function() {
       config: config
     } );
   };
-
+  /**
+   *
+   * @param {function} cb
+   */
   serialObj.read = function( cb ) {
     socket.emit( 'serial read' );
     socket.on( 'serial read return', function( data ) {
@@ -30,20 +33,29 @@ var serial = function() {
       cb( data );
     } );
   };
-
-  // Read-event aliases for the old-school among us.
+  /**
+   * Read-event aliases for the old-school among us.
+   * @type {serialObj.read|*}
+   */
   serialObj.readEvent = serialObj.read;
   serialObj.readData = function() {
     return this.data;
   };
-
+  /**
+   *
+   * @param arg
+   * @param {function} cb
+   */
   serialObj.write = function( arg, cb ) {
     socket.emit( 'serial write', { arg: arg } );
     socket.on( 'serial write return', function( data ) {
       cb && cb( data );
     } );
   };
-
+  /**
+   *
+   * @param {function} cb
+   */
   serialObj.list = function( cb ) {
     socket.emit( 'serial list' );
     socket.on( 'serial list return', function( data ) {

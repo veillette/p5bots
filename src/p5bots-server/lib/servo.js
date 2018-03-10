@@ -1,9 +1,18 @@
+/**
+ *
+ * @param board
+ * @param socket
+ */
 exports.range = function servoRange( board, socket ) {
   socket.on( 'range', function( data ) {
     board.servoConfig( data.pin, data.range[ 0 ], data.range[ 1 ] );
   } );
 };
-
+/**
+ *
+ * @param board
+ * @param socket
+ */
 exports.sweep = function servoSweep( board, socket ) {
   socket.on( 'sweep', function( data ) {
     var degrees = 10,

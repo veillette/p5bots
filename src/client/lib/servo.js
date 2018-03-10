@@ -18,7 +18,10 @@ function servo( pin ) {
     var fire = utils.socketGen( 'servo', 'write', pin );
     utils.dispatch( fire, arg );
   };
-
+  /**
+   *
+   * @param arg
+   */
   pin.range = function( arg ) {
     this.rangeMin = arg[ 0 ];
     this.rangeMax = arg[ 1 ];
@@ -33,7 +36,10 @@ function servo( pin ) {
     utils.dispatch( servoRange.bind( this ) );
 
   };
-
+  /**
+   *
+   * @param inc
+   */
   pin.sweep = function( inc ) {
     function servoSweep() {
       utils.socket.emit( 'sweep', {

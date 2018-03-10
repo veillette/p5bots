@@ -73,7 +73,7 @@ var setup = exports.setup = function( io ) {
 
       // If the board has already been initialized in firmata, it won't
       // call the callback again on client reload; this way the init
-      // functions are called without restarting the whole proces
+      // functions are called without restarting the whole process
 
       if ( !board ) {
         board = new Board( data.port, function( err ) {
@@ -106,7 +106,7 @@ var setup = exports.setup = function( io ) {
       // console.log('action data', data);
       var argument = data.arg;
       if ( argument ) {
-        // If it is digtalWrite, augment the argument with
+        // If it is digitalWrite, augment the argument with
         // `board` to match firmata call
         if ( argument && ( argument === 'HIGH' || argument === 'LOW' ) ) {
           board[ data.action ]( data.pin, board[ argument ] );

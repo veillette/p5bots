@@ -31,6 +31,11 @@ function piezo( pin ) {
     return function nextRead( arg ) { fire( arg ); };
   };
 
+  /**
+   *
+   * @param tone
+   * @param {number} duration
+   */
   pin.tone = function( tone, duration ) {
     function piezoTone() {
       utils.socket.emit( 'tone', {
@@ -43,6 +48,9 @@ function piezo( pin ) {
     utils.dispatch( piezoTone.bind( this ) );
   };
 
+  /**
+   *  Cancel tones
+   */
   pin.noTone = function() {
     function piezoNoTone() {
       utils.socket.emit( 'cancel tones' );
@@ -50,9 +58,11 @@ function piezo( pin ) {
 
     utils.dispatch( piezoNoTone.bind( this ) );
   };
-
-  // Since this method just attaches further properties to the pin
-  // it does not run through dispatch
+  /**
+   * Since this method just attaches further properties to the pin
+   * it does not run through dispatch
+   * @param {number} thresh
+   */
   pin.threshold = function( thresh ) {
     this.threshold = thresh;
     this.overThreshold = function() {

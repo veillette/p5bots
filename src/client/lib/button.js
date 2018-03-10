@@ -14,6 +14,10 @@ function button( pin ) {
   utils.dispatch( utils.pinInit( pin.pin, pin.mode, pin.direction ) );
   utils.constructFuncs( pin );
 
+  /**
+   *
+   * @param {function} cb
+   */
   pin.pressed = function( cb ) {
     function pinPress() {
       this.buttonPressedcb = cb;
@@ -22,6 +26,10 @@ function button( pin ) {
     utils.dispatch( pinPress.bind( this ) );
   };
 
+  /**
+   *
+   * @param {function} cb
+   */
   pin.released = function( cb ) {
     function pinRelease() {
       this.buttonReleasedcb = cb;
@@ -30,6 +38,11 @@ function button( pin ) {
     utils.dispatch( pinRelease.bind( this ) );
   };
 
+  /**
+   *
+   * @param {function}cb
+   * @param {number} threshold
+   */
   pin.held = function( cb, threshold ) {
 
     function pinHeld() {
