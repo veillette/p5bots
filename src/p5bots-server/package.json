@@ -1,6 +1,6 @@
 {
   "name": "p5bots-server",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Get sensor data into your p5 sketches -- the server files",
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "firmata": "^0.14.1",
     "nanotimer": "^0.3.10",
     "serialport": "^4.0.7",
-    "socket.io": "^1.3.6"
+    "socket.io": "^2.0.4"
   },
   "license": "LGPL-2.1",
   "bugs": {
