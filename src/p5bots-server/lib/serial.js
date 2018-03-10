@@ -48,8 +48,8 @@ exports.write = function serialWrite( socket ) {
 
 // Skips the event queue
 exports.list = function serialList( socket ) {
-  socket.on( 'serial list', function( sp ) {
-    sp.list( function( err, ports ) {
+  socket.on( 'serial list', function() {
+    SerialPort.list( function( err, ports ) {
       var portsArr = [];
       ports.forEach( function( port ) {
         var inner = {};
