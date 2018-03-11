@@ -6,7 +6,7 @@ These are the files necessary for the server end of the p5bots setup. While the 
 
 ### Arduino
 1. Download [Arduino IDE](https://www.arduino.cc/en/main/software).
-2. Upload `File > Examples > Firmata > StandardFirmata` to your board. To do this, you'll have to select your board and serial port from the `Tools` menu. ([More instructions from Arduino.](https://www.arduino.cc/en/Guide/MacOSX)) 
+2. Upload `File > Examples > Firmata > StandardFirmata` to your board. To do this, you'll have to select your board and serial port from the `Tools` menu. ([More instructions from Arduino.](https://www.arduino.cc/en/Guide/Windows))
   **Note:** If you are only using serial, you can skip this step.
 3. Write down the port your board is using; you may need it later.
 
