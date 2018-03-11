@@ -31,7 +31,7 @@ Currently, the RGB LED test is uncommented. To run it, set up the breadboard lik
 
 ![rgb led layout with red in 9, green in 10, and blue in 11, plus resistors between board and leg; ground is to ground/](img/rgb_led.png)
 
-_This setup uses a common-anode RGB led. The pin with the longest leg is the anode, and should go into the hole connected to ground. Red is pin 9, green 10, blue 11._
+_This setup uses a common-cathode RGB led. The pin with the longest leg is the cathode, and should go into the hole connected to ground. Red is pin 9, green 10, blue 11._
 
 If you installed globally, run:
 
