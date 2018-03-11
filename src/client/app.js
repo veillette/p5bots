@@ -90,7 +90,7 @@ var Pin = function( num, mode, direction ) {
 
 
 /**
- * Instantiaties pin, directs construction of helper methods
+ * Instantiates pin, directs construction of helper methods
  * based on mode
  *
  * @param {Number} num         Pin number on the board

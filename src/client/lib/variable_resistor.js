@@ -11,7 +11,10 @@ function vres( pin ) {
   pin.direction = 'input';
   utils.dispatch( utils.pinInit( pin.pin, pin.mode, pin.direction ) );
   utils.constructFuncs( pin );
-
+  /**
+   *
+   * @param range
+   */
   pin.range = function( range ) {
     var min = range[ 0 ],
       max = range[ 1 ];
@@ -24,9 +27,11 @@ function vres( pin ) {
 
     utils.dispatch( vrRange.bind( this ) );
   };
-
-  // Since this method just attaches further properties to the pin
-  // it does not run through dispatch
+  /**
+   * Since this method just attaches further properties to the pin
+   * it does not run through dispatch
+   * @param {number} thresh
+   */
   pin.threshold = function( thresh ) {
     this.threshold = thresh;
     this.overThreshold = function() {

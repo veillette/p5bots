@@ -5,6 +5,11 @@ socket.on( 'error', function( err ) {
 
 var utils = {
 
+  /**
+   *
+   * @param port
+   * @param type
+   */
   boardInit: function( port, type ) {
     // Board should always immediately fire
     socket.emit( 'board object', {
@@ -15,7 +20,6 @@ var utils = {
 
   // Set by p5.board
   board: undefined,
-
 
   /**
    * Workhorse function establishes default read & write for all
@@ -29,6 +33,10 @@ var utils = {
 
     var mode = mode || pin.mode; // jshint ignore:line
 
+    /**
+     *
+     * @param data
+     */
     function setVal( data ) {
       // Callbacks set in socketGen for generic read
       // & in special constructors for special
@@ -39,6 +47,11 @@ var utils = {
       utils.readTests[ this.special ].call( this, data.val );
     }
 
+    /**
+     *
+     * @param arg
+     * @returns {function} nextRead
+     */
     pin.read = function( arg ) {
       var fire = utils.socketGen( mode, 'read', pin );
       utils.dispatch( fire, arg );
@@ -46,6 +59,11 @@ var utils = {
       return function nextRead( arg ) { fire( arg ); };
     };
 
+    /**
+     *
+     * @param arg
+     * @returns {function} nextWrite
+     */
     pin.write = function( arg ) {
       var fire = utils.socketGen( mode, 'write', pin );
       utils.dispatch( fire, arg );
@@ -55,12 +73,24 @@ var utils = {
     return pin;
   },
 
+  /**
+   *
+   * @param {function} fn
+   * @param arg
+   */
   dispatch: function( fn, arg ) {
     this.board.ready ?
     fn( arg )
       : this.board.eventQ.push( { func: fn, args: [ arg ] } );
   },
 
+  /**
+   *
+   * @param {Object} pin
+   * @param {string} mode
+   * @param {string} direction  - valid values are input | output
+   * @returns {function} emitPin
+   */
   pinInit: function( pin, mode, direction ) {
     return function emitPin() {
       socket.emit( 'pin object', {
@@ -78,6 +108,11 @@ var utils = {
    * @type {Object}
    */
   readTests: {
+
+    /**
+     *
+     * @param {number} val - valid values are 0 and 1
+     */
     button: function buttonTests( val ) {
       if ( val === 1 ) {
         this.pressedOnce = true;
@@ -90,6 +125,10 @@ var utils = {
       }
     },
 
+    /**
+     *
+     * @param {number} val - temperature
+     */
     temp: function tempSettings( val ) {
       var conversions = {
         'CtoF': function( value ) {

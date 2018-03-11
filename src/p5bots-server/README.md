@@ -1,12 +1,12 @@
 # p5bots-server
 
-These are the files necessary for the server end of the p5bots setup. While the instructions below help you get the example file up and running, you'll need the [client-side library](p5bots) as well to make your own work with the p5 and p5bots APIs.
+These are the files necessary for the server end of the p5bots setup. While the instructions below help you get the example file up and running, you'll need the [client-side library]() as well to make your own work with the p5 and p5bots APIs.
 
 ## Setup
 
 ### Arduino
 1. Download [Arduino IDE](https://www.arduino.cc/en/main/software).
-2. Upload `File > Examples > Firmata > StandardFirmata` to your board. To do this, you'll have to select your board and serial port from the `Tools` menu. ([More instructions from Arduino.](https://www.arduino.cc/en/Guide/MacOSX)) 
+2. Upload `File > Examples > Firmata > StandardFirmata` to your board. To do this, you'll have to select your board and serial port from the `Tools` menu. ([More instructions from Arduino.](https://www.arduino.cc/en/Guide/Windows))
   **Note:** If you are only using serial, you can skip this step.
 3. Write down the port your board is using; you may need it later.
 
@@ -31,7 +31,7 @@ Currently, the RGB LED test is uncommented. To run it, set up the breadboard lik
 
 ![rgb led layout with red in 9, green in 10, and blue in 11, plus resistors between board and leg; ground is to ground/](img/rgb_led.png)
 
-_This setup uses a common-anode RGB led. The pin with the longest leg is the anode, and should go into the hole connected to ground. Red is pin 9, green 10, blue 11._
+_This setup uses a common-cathode RGB led. The pin with the longest leg is the cathode, and should go into the hole connected to ground. Red is pin 9, green 10, blue 11._
 
 If you installed globally, run:
 

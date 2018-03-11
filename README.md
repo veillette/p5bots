@@ -6,8 +6,6 @@
 * [Getting Started](#getting-started)
 * [Finding Information](#finding-information)
 * [Issues](#issues)
-* [Contributing](#contributing)
-
 
 ## How Does This Work?
 
@@ -44,7 +42,7 @@ Details for these methods, plus examples can be found in the module pages. Examp
 Ready to go? Good entry points include:
 * [the Hello, World tutorial](examples/HelloWorld.md)
 * [checking out examples, say for RGB LEDs](examples/README.md#rgb-write)
-* reading about [the client API](src/client/README.md), which lists the methods you can use in your p5 code and covers setting up in detail, and [p5bots-server](https://github.com/sarahgp/p5bots/tree/master/src/p5bots-server)
+* reading about [the client API](src/client/README.md), which lists the methods you can use in your p5 code and covers setting up in detail, and [p5bots-server](src/p5bots-server)
 * or, [heading over to p5.js to learn more about the drawing library](http://p5js.org/)
 
 ## Finding Information
@@ -55,9 +53,6 @@ Detailed explanations of functionality have been broken up by subject:
 
 ## Issues
 [Report issues in this repo.](https://github.com/veillette/p5bots/issues)
-
-## Contributing
-Want to fix an issue you've identified? Looking to create some functionality we have yet to add? Check out  [CONTRIBUTING.md](https://github.com/sarahgp/p5bots/blob/master/CONTRIBUTING.md).
 
 ## License
 [LGPL](license.txt)
