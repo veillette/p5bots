@@ -6,8 +6,6 @@
 * [Getting Started](#getting-started)
 * [Finding Information](#finding-information)
 * [Issues](#issues)
-* [Contributing](#contributing)
-
 
 ## How Does This Work?
 
