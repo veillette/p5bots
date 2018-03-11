@@ -582,7 +582,7 @@ function keyPressed() {
 ![temp diagram](diagrams/temp.png)  
 _diagram: temp_
 
-This example uses a [TS-195 analog temperature sensor](http://tinkersphere.com/sensors/195-temperature-sensor-arduino-compatible.html) but should work with all analog temp sensors.
+This example uses a [LM-34 analog temperature sensor](http://www.ti.com/lit/ds/symlink/lm34.pdf) but should work with all analog temp sensors.
 
 ```js
 // Board setup — you may need to change the port
