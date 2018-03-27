@@ -19,11 +19,11 @@
     "examples-go": "node ./app.js -d 'example'"
   },
   "dependencies": {
-    "commander": "^2.8.1",
-    "express": "^4.13.1",
-    "firmata": "^0.14.1",
+    "commander": "^2.15.1",
+    "express": "^4.16.3",
+    "firmata": "^0.19.1",
     "nanotimer": "^0.3.10",
-    "serialport": "^4.0.7",
+    "serialport": "^6.1.1",
     "socket.io": "^2.0.4"
   },
   "license": "LGPL-2.1",
