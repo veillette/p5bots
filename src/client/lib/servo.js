@@ -13,7 +13,7 @@ function servo( pin ) {
   pin.rangeMin = 0;
   pin.rangeMax = 45;
 
-  // Overwrite default write returned from construct funcs with servoWrite
+  // Overwrite default write returned from constructFuncs with servoWrite
   pin.write = function( arg ) {
     var fire = utils.socketGen( 'servo', 'write', pin );
     utils.dispatch( fire, arg );
