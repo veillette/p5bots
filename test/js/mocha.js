@@ -436,9 +436,9 @@ function isArray(obj) {
  * @api public
  */
 
-function EventEmitter(){};
 
-/**
+function EventEmitter() {}
+  /**
  * Adds a listener.
  *
  * @api public
@@ -474,8 +474,7 @@ EventEmitter.prototype.once = function (name, fn) {
   function on () {
     self.removeListener(name, on);
     fn.apply(this, arguments);
-  };
-
+  }
   on.listener = fn;
   this.on(name, on);
 
@@ -853,8 +852,9 @@ function Hook(title, fn) {
  * Inherit from `Runnable.prototype`.
  */
 
-function F(){};
-F.prototype = Runnable.prototype;
+
+function F() {}
+  F.prototype = Runnable.prototype;
 Hook.prototype = new F;
 Hook.prototype.constructor = Hook;
 
@@ -1227,9 +1227,8 @@ require.register("interfaces/tdd.js", function(module, exports, require){
 
 var Suite = require('../suite')
   , Test = require('../test')
-  , utils = require('../utils');;
-
-/**
+  , utils = require( '../utils' );
+  /**
  * TDD-style interface:
  *
  *      suite('Array', function(){
@@ -1435,7 +1434,7 @@ function Mocha(options) {
   this.bail(options.bail);
   this.reporter(options.reporter);
   if (null != options.timeout) this.timeout(options.timeout);
-  this.useColors(options.useColors)
+  this.useColors(options.useColors);
   if (options.slow) this.slow(options.slow);
 }
 
@@ -1477,8 +1476,12 @@ Mocha.prototype.reporter = function(reporter){
   } else {
     reporter = reporter || 'dot';
     var _reporter;
-    try { _reporter = require('./reporters/' + reporter); } catch (err) {};
-    if (!_reporter) try { _reporter = require(reporter); } catch (err) {};
+    try { _reporter = require( './reporters/' + reporter ); }
+    catch( err ) {}
+    if ( !_reporter ) {
+      try { _reporter = require( reporter ); }
+      catch( err ) {}
+    }
     if (!_reporter && reporter === 'teamcity')
       console.warn('The Teamcity reporter was moved to a package named ' +
         'mocha-teamcity-reporter ' +
@@ -1499,7 +1502,10 @@ Mocha.prototype.reporter = function(reporter){
 Mocha.prototype.ui = function(name){
   name = name || 'bdd';
   this._ui = exports.interfaces[name];
-  if (!this._ui) try { this._ui = require(name); } catch (err) {};
+  if ( !this._ui ) {
+    try { this._ui = require( name ); }
+    catch( err ) {}
+  }
   if (!this._ui) throw new Error('invalid interface "' + name + '"');
   this._ui = this._ui(this.suite);
   return this;
@@ -2417,8 +2423,9 @@ function Dot(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 Dot.prototype = new F;
 Dot.prototype.constructor = Dot;
 
@@ -2540,7 +2547,7 @@ function HTML(runner, root) {
     , report = fragment('<ul id="mocha-report"></ul>')
     , stack = [report]
     , progress
-    , ctx
+    , ctx;
 
   root = root || document.getElementById('mocha');
 
@@ -2870,9 +2877,8 @@ function map(cov) {
   }
 
   return ret;
-};
-
-/**
+}
+  /**
  * Map jscoverage data for a single source file
  * to a JSON structure suitable for reporting.
  *
@@ -3152,7 +3158,7 @@ function Landing(runner) {
     stream.write(runway());
     stream.write('\n  ');
     stream.write(color('runway', Array(col).join('⋅')));
-    stream.write(plane)
+    stream.write(plane);
     stream.write(color('runway', Array(width - col).join('⋅') + '\n'));
     stream.write(runway());
     stream.write('\u001b[0m');
@@ -3169,8 +3175,9 @@ function Landing(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 Landing.prototype = new F;
 Landing.prototype.constructor = Landing;
 
@@ -3240,8 +3247,9 @@ function List(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 List.prototype = new F;
 List.prototype.constructor = List;
 
@@ -3380,8 +3388,9 @@ function Min(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 Min.prototype = new F;
 Min.prototype.constructor = Min;
 
@@ -3576,7 +3585,7 @@ NyanCat.prototype.face = function() {
   } else {
     return '( - .-)';
   }
-}
+};
 
 /**
  * Move cursor up `n`.
@@ -3648,8 +3657,9 @@ function write(string) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 NyanCat.prototype = new F;
 NyanCat.prototype.constructor = NyanCat;
 
@@ -3742,8 +3752,9 @@ function Progress(runner, options) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 Progress.prototype = new F;
 Progress.prototype.constructor = Progress;
 
@@ -3837,8 +3848,9 @@ function Spec(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 Spec.prototype = new F;
 Spec.prototype.constructor = Spec;
 
@@ -3989,8 +4001,9 @@ function XUnit(runner) {
  * Inherit from `Base.prototype`.
  */
 
-function F(){};
-F.prototype = Base.prototype;
+
+function F() {}
+  F.prototype = Base.prototype;
 XUnit.prototype = new F;
 XUnit.prototype.constructor = XUnit;
 
@@ -4099,8 +4112,9 @@ function Runnable(title, fn) {
  * Inherit from `EventEmitter.prototype`.
  */
 
-function F(){};
-F.prototype = EventEmitter.prototype;
+
+function F() {}
+  F.prototype = EventEmitter.prototype;
 Runnable.prototype = new F;
 Runnable.prototype.constructor = Runnable;
 
@@ -4346,8 +4360,9 @@ Runner.immediately = global.setImmediate || process.nextTick;
  * Inherit from `EventEmitter.prototype`.
  */
 
-function F(){};
-F.prototype = EventEmitter.prototype;
+
+function F() {}
+  F.prototype = EventEmitter.prototype;
 Runner.prototype = new F;
 Runner.prototype.constructor = Runner;
 
@@ -4908,8 +4923,9 @@ function Suite(title, ctx) {
  * Inherit from `EventEmitter.prototype`.
  */
 
-function F(){};
-F.prototype = EventEmitter.prototype;
+
+function F() {}
+  F.prototype = EventEmitter.prototype;
 Suite.prototype = new F;
 Suite.prototype.constructor = Suite;
 
@@ -5175,8 +5191,9 @@ function Test(title, fn) {
  * Inherit from `Runnable.prototype`.
  */
 
-function F(){};
-F.prototype = Runnable.prototype;
+
+function F() {}
+  F.prototype = Runnable.prototype;
 Test.prototype = new F;
 Test.prototype.constructor = Test;
 
@@ -5294,7 +5311,7 @@ exports.filter = function(arr, fn){
 
 exports.keys = Object.keys || function(obj) {
   var keys = []
-    , has = Object.prototype.hasOwnProperty // for `window` on <=IE8
+    , has = Object.prototype.hasOwnProperty; // for `window` on <=IE8
 
   for (var key in obj) {
     if (has.call(obj, key)) {

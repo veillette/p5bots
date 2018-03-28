@@ -37,7 +37,7 @@ function setup() {
   }
 
   function greenEllipse() {
-    console.log( 'held' )
+    console.log( 'held' );
     clear();
     noStroke();
     fill( 0, 255, 136 );

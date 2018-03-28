@@ -277,14 +277,14 @@
   };
 
   /**
-   * Creates an &lt;input&gt;&lt;/input&gt; element in the DOM of type 'file'.  
+   * Creates an &lt;input&gt;&lt;/input&gt; element in the DOM of type 'file'.
    * This allows users to select local files for use in a sketch.
-   * 
+   *
    * @method createFileInput
    * @param  {Function} [callback] callback function for when a file loaded
    * @param  {String} [multiple] optional to allow multiple files selected
    * @return {Object/p5.Element} pointer to p5.Element holding created DOM element
-   *                           
+   *
    */
   p5.prototype.createFileInput = function(callback, multiple) {
 
@@ -300,7 +300,7 @@
         // Anything gets the job done
         elt.multiple = 'multiple';
       }
-     
+
       // Now let's handle when a file was selected
       elt.addEventListener('change', handleFileSelect, false);
 
@@ -322,8 +322,7 @@
               p5file.data = e.target.result;
               callback(p5file);
             };
-          };
-          
+          }
           // Text of data?
           // This should likely be improved
           if (f.type === 'text') {
@@ -437,8 +436,8 @@
    * Creates a new &lt;video&gt; element that contains the audio/video feed
    * from a webcam. This can be drawn onto the canvas using video(). More
    * specific properties of the stream can be passing in a Constraints object.
-   * See the 
-   * <a href="http://w3c.github.io/mediacapture-main/getusermedia.html">W3C 
+   * See the
+   * <a href="http://w3c.github.io/mediacapture-main/getusermedia.html">W3C
    * spec</a> for possible properties. Note that not all of these are supported
    * by all browsers.
    *
@@ -572,7 +571,7 @@
       this.elt.className = c;
     }
     return this;
-  }
+  };
 
   /**
    *
@@ -587,7 +586,7 @@
     this.elt.className = this.elt.className.replace(regex, '');
     this.elt.className = this.elt.className.replace(/^\s+|\s+$/g, ""); //prettify (optional)
     return this;
-  }
+  };
 
   /**
    *
@@ -675,7 +674,7 @@
     //this.elt.style.top = (y-offset.top)+'px';
     this.elt.style.left = x+'px';
     this.elt.style.top = y+'px';
-    
+
     return this;
   };
 
@@ -1026,13 +1025,13 @@
       p5.prototype.loadPixels.call(this);
     }
     return this;
-  }
+  };
   p5.MediaElement.prototype.updatePixels =  function(x, y, w, h){
     if (this.loadedmetadata) { // wait for metadata
       p5.prototype.updatePixels.call(this, x, y, w, h);
     }
     return this;
-  }
+  };
   p5.MediaElement.prototype.get = function(x, y, w, h){
     if (this.loadedmetadata) { // wait for metadata
       return p5.prototype.get.call(this, x, y, w, h);
@@ -1051,7 +1050,7 @@
    *  p5.sound object. If no element is provided, connects to p5's master
    *  output. That connection is established when this method is first called.
    *  All connections are removed by the .disconnect() method.
-   *  
+   *
    *  This method is meant to be used with the p5.sound.js addon library.
    *
    *  @method  connect
@@ -1064,7 +1063,7 @@
 
     // if p5.sound exists, same audio context
     if (typeof p5.prototype.getAudioContext === 'function') {
-      audioContext = p5.prototype.getAudioContext(); 
+      audioContext = p5.prototype.getAudioContext();
       masterOutput = p5.soundOut.input;
     } else {
       try {
@@ -1103,7 +1102,7 @@
    *  Disconnect all Web Audio routing, including to master output.
    *  This is useful if you want to re-route the output through
    *  audio effects, for example.
-   *  
+   *
    *  @method  disconnect
    */
   p5.MediaElement.prototype.disconnect = function() {
@@ -1130,7 +1129,7 @@
 
   /**
    *  Hide the default mediaElement controls.
-   *  
+   *
    *  @method hideControls
    */
   p5.MediaElement.prototype.hideControls = function() {
@@ -1171,7 +1170,7 @@
    *  <div><code>
    *  function setup() {
    *    background(255,255,255);
-   *    
+   *
    *    audioEl = createAudio('assets/beat.mp3');
    *    audioEl.showControls();
    *
@@ -1315,7 +1314,7 @@
      * @property size
      */
     this.size = file.size;
-    
+
     // Data not loaded yet
     this.data = undefined;
   };

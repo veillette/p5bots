@@ -37,7 +37,7 @@ function keyPressed() {
     console.log( thermo.val );
   }
   else if ( keyCode === DOWN_ARROW ) {
-    console.log( 'k' )
+    console.log( 'k' );
     console.log( thermo.K );
   }
 }
