@@ -39,8 +39,8 @@ function piezo( pin ) {
   pin.tone = function( tone, duration ) {
     function piezoTone() {
       utils.socket.emit( 'tone', {
-        tone: tone,
-        duration: duration,
+        tone,
+        duration,
         pin: this.pin
       } );
     }

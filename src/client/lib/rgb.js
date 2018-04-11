@@ -71,7 +71,7 @@ function rgb( pin ) {
 
       utils.socket.emit( 'rgb read', {
         pins: { red: this.redPin, green: this.greenPin, blue: this.bluePin },
-        arg: arg
+        arg
       } );
 
       /**
@@ -140,7 +140,7 @@ function rgb( pin ) {
           green: [ this.greenPin, this.color.writeArr[ 1 ] || 255 ],
           blue: [ this.bluePin, this.color.writeArr[ 2 ] || 255 ]
         },
-        length: length
+        length
       } );
     }
 

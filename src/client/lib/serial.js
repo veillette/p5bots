@@ -18,8 +18,8 @@ var serial = function() {
    */
   serialObj.connect = function( path, config ) {
     socket.emit( 'serial init', {
-      path: path,
-      config: config
+      path,
+      config
     } );
   };
   /**
@@ -47,7 +47,7 @@ var serial = function() {
    * @param {function} cb
    */
   serialObj.write = function( arg, cb ) {
-    socket.emit( 'serial write', { arg: arg } );
+    socket.emit( 'serial write', { arg } );
     socket.on( 'serial write return', function( data ) {
       cb && cb( data );
     } );

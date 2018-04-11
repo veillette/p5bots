@@ -46,7 +46,7 @@ function servo( pin ) {
         pin: this.pin,
         min: this.rangeMin,
         max: this.rangeMax,
-        inc: inc
+        inc
       } );
     }
 

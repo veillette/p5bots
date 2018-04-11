@@ -14,7 +14,7 @@ var utils = {
     // Board should always immediately fire
     socket.emit( 'board object', {
       board: type,
-      port: port
+      port
     } );
   },
 
@@ -94,7 +94,7 @@ var utils = {
   pinInit: function( pin, mode, direction ) {
     return function emitPin() {
       socket.emit( 'pin object', {
-        pin: pin,
+        pin,
         mode: mode.toLowerCase(),
         direction: direction.toLowerCase()
       } );
@@ -149,7 +149,7 @@ var utils = {
     }
   },
 
-  socket: socket,
+  socket,
 
   /**
    * Generates generic read and write funcs and emits
@@ -173,7 +173,7 @@ var utils = {
         action: kind + titleCase( direction ),
         pin: pin.pin,
         type: direction,
-        arg: arg
+        arg
       } );
     };
   }

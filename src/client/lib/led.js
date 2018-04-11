@@ -65,10 +65,10 @@ function led( pin ) {
       var inc = increment || 200;
       utils.socket.emit( 'fade', {
         pin: this.pin,
-        start: start,
-        stop: stop,
+        start,
+        stop,
         time: totalTime,
-        inc: inc
+        inc
       } );
     }
 
@@ -82,7 +82,7 @@ function led( pin ) {
     function ledBlink() {
       utils.socket.emit( 'blink', {
         pin: [ this.pin ],
-        length: length,
+        length,
         id: blinkCounter
       } );
     }
