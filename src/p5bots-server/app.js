@@ -1,17 +1,23 @@
 #!/usr/bin/env node
 'use strict';
 
-var express = require( 'express' ),
-  app = express(),
-  server = require( 'http' ).Server( app ),
-  io = require( 'socket.io' )( server ), // jshint ignore:line
-  Board = require( 'firmata' ),
-  program = require( 'commander' ),
-  fs = require( 'fs' ),
-  path = require( 'path' );
+var express = require( 'express' );
+var app = express();
+var server = require( 'http' ).Server( app );
+
+var // jshint ignore:line
+io = require( 'socket.io' )( server );
+
+var Board = require( 'firmata' );
+var program = require( 'commander' );
+var fs = require( 'fs' );
+var path = require( 'path' );
 
 // Parse command-line args
-var directory, index, program;
+var directory;
+
+var index;
+var program;
 
 function makeAbsolute( filepath ) {
   if ( path.isAbsolute( filepath ) ) {return filepath;}
@@ -164,16 +170,14 @@ var setup = exports.setup = function( io ) {
         filepath = path.normalize( filepath );
         fs.stat( filepath, function( err, stats ) {
           if ( err == null ) {
-
             var reqPath = makeAbsolute( filepath );
 
-            var user = require( reqPath ),
-              keys = Object.keys( user );
+            var user = require( reqPath );
+            var keys = Object.keys( user );
 
             keys.forEach( function( key ) {
               user[ key ]( board, socket );
             } );
-
           }
           else if ( err.code === 'ENOENT' ) {
             throw new Error( filepath +

@@ -12,8 +12,8 @@ exports.write = function rgbWrite( board, socket ) {
 
 exports.read = function rgbRead( board, socket ) {
   socket.on( 'rgb read', function( data ) {
-    var pins = data.pins,
-      pKeys = Object.keys( pins );
+    var pins = data.pins;
+    var pKeys = Object.keys( pins );
 
     pKeys.forEach( function( key ) {
       var val = board.pins[ pins[ key ] ].value;
@@ -25,13 +25,13 @@ exports.read = function rgbRead( board, socket ) {
 exports.blink = function rgbBlink( board, socket ) {
 
   socket.on( 'rgb blink', function( data ) {
-    var pinsArray = Object.keys( data.pins ),
-      length = data.length || 500,
-      idsArray = [];
+    var pinsArray = Object.keys( data.pins );
+    var length = data.length || 500;
+    var idsArray = [];
 
     pinsArray.forEach( function( key ) {
-      var ledPin = data.pins[ key ][ 0 ],
-        ledOn = true;
+      var ledPin = data.pins[ key ][ 0 ];
+      var ledOn = true;
 
       board.pinMode( ledPin, board.MODES.PWM );
 
@@ -63,9 +63,8 @@ exports.blink = function rgbBlink( board, socket ) {
 
 exports.fade = function rgbFade( board, socket ) {
   socket.on( 'rgb fade', function( data ) {
-
-    var keys = Object.keys( data ),
-      mult;
+    var keys = Object.keys( data );
+    var mult;
 
     function nextVal( a, b ) {
       return a + mult * b;
@@ -74,14 +73,14 @@ exports.fade = function rgbFade( board, socket ) {
     keys.forEach( function( key ) {
       var el = data[ key ];
 
-      var time = el.time,
-        start = el.start,
-        stop = el.stop,
-        inc = el.inc,
-        steps = time / inc,
-        span = Math.abs( start - stop ),
-        vps = span / steps,
-        val = start;
+      var time = el.time;
+      var start = el.start;
+      var stop = el.stop;
+      var inc = el.inc;
+      var steps = time / inc;
+      var span = Math.abs( start - stop );
+      var vps = span / steps;
+      var val = start;
 
       mult = stop > start ? 1 : -1;
 

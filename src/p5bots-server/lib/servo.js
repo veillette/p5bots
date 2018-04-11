@@ -15,10 +15,10 @@ exports.range = function servoRange( board, socket ) {
  */
 exports.sweep = function servoSweep( board, socket ) {
   socket.on( 'sweep', function( data ) {
-    var degrees = 10,
-      incrementer = data.inc || 10,
-      min = data.min || 0,
-      max = data.max || 180;
+    var degrees = 10;
+    var incrementer = data.inc || 10;
+    var min = data.min || 0;
+    var max = data.max || 180;
 
     board.servoWrite( data.pin, data.min || 0 );
 

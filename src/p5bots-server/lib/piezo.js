@@ -1,14 +1,14 @@
-var Timer = require( 'nanotimer' ),
-  tones = require( './tones.js' );
+var Timer = require( 'nanotimer' );
+var tones = require( './tones.js' );
 
 exports.tone = function( board, socket ) {
 
   var tmrsArray = [];
 
   socket.on( 'tone', function( data ) {
-    var timer = new Timer(),
-      value = 1,
-      tone = data.tone;
+    var timer = new Timer();
+    var value = 1;
+    var tone = data.tone;
 
     if ( tones[ tone ] ) {
       tone = tones[ tone ];
@@ -34,7 +34,6 @@ exports.tone = function( board, socket ) {
       }
 
     }, null, tone + 'u' );
-
   } );
 
   socket.on( 'cancel tones', function() {

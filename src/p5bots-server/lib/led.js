@@ -1,8 +1,8 @@
 exports.blink = function blink( board, socket ) {
   socket.on( 'blink', function( data ) {
-    var ledPin = data.pin,
-      ledOn = true,
-      length = data.length || 500;
+    var ledPin = data.pin;
+    var ledOn = true;
+    var length = data.length || 500;
 
     board.pinMode( ledPin, board.MODES.OUTPUT );
 
@@ -25,7 +25,6 @@ exports.blink = function blink( board, socket ) {
     socket.on( 'blink cancel', function() {
       clearInterval( blinkID );
     } );
-
   } );
 };
 
@@ -33,15 +32,15 @@ exports.fade = function fade( board, socket ) {
   socket.on( 'fade', function( data ) {
     board.pinMode( data.pin, board.MODES.PWM );
 
-    var time = data.time,
-      start = data.start,
-      stop = data.stop,
-      inc = data.inc,
-      steps = time / inc,
-      span = Math.abs( start - stop ),
-      vps = span / steps,
-      mult = stop > start ? 1 : -1,
-      val = start;
+    var time = data.time;
+    var start = data.start;
+    var stop = data.stop;
+    var inc = data.inc;
+    var steps = time / inc;
+    var span = Math.abs( start - stop );
+    var vps = span / steps;
+    var mult = stop > start ? 1 : -1;
+    var val = start;
 
 
     function nextVal( a, b ) {

@@ -1,6 +1,6 @@
-var SerialPort = require( 'serialport' ),
-  serialport,
-  serialQ = [];
+var SerialPort = require( 'serialport' );
+var serialport;
+var serialQ = [];
 
 function serialDispatch( fn, args ) {
   serialport.isOpen() ?
