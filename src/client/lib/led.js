@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds led-specific methods to pin object. Called via special.
@@ -104,4 +104,4 @@ function led( pin ) {
   return pin;
 }
 
-export default led;
+module.exports = led;

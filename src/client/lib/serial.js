@@ -1,5 +1,4 @@
-import utils from './socket_utils.js';
-
+var utils = require( './socket_utils.js' );
 var socket = utils.socket;
 var serialObj = {};
 
@@ -69,4 +68,4 @@ var serial = function() {
 
 };
 
-export default serial;
+module.exports = serial;

@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds variable resistor-specific methods to pin object. Called via special.
@@ -43,4 +43,4 @@ function vres( pin ) {
 
 }
 
-export default vres;
+module.exports = vres;

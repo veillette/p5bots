@@ -22,4 +22,4 @@ var special = {
 
 };
 
-export default special;
+module.exports = special;

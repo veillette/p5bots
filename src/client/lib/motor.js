@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds motor-specific methods to pin object. Called via special.
@@ -39,4 +39,4 @@ function motor( pin ) {
   return pin;
 }
 
-export default motor;
+module.exports = motor;

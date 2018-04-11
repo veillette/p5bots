@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds piezo-specific methods to pin object. Called via special.
@@ -73,4 +73,4 @@ function piezo( pin ) {
   return pin;
 }
 
-export default piezo;
+module.exports = piezo;

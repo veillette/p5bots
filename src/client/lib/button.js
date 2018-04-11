@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds button-specific methods to pin object. Called via special.
@@ -58,5 +58,5 @@ function button( pin ) {
   return pin;
 }
 
-export default button;
+module.exports = button;
 

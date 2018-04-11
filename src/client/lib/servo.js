@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Adds servo-specific methods to pin object. Called via special.
@@ -64,4 +64,4 @@ function servo( pin ) {
   return pin;
 }
 
-export default servo;
+module.exports = servo;

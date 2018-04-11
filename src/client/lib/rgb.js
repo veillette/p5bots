@@ -1,4 +1,4 @@
-import utils from './socket_utils.js';
+var utils = require( './socket_utils.js' );
 
 /**
  * Processes & adds rgb led–specific methods to pin object. Called via special.
@@ -205,4 +205,4 @@ function rgb( pin ) {
   return pin;
 }
 
-export default rgb;
+module.exports = rgb;
