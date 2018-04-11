@@ -30,12 +30,11 @@ function rgb( pin ) {
    *
    */
   pin.write = function( color ) {
-
     this.color = Array.isArray( color ) ? p5.prototype.color( color ) : color;
 
-    var red = p5.prototype.red( this.color ),
-      green = p5.prototype.green( this.color ),
-      blue = p5.prototype.blue( this.color );
+    var red = p5.prototype.red( this.color );
+    var green = p5.prototype.green( this.color );
+    var blue = p5.prototype.blue( this.color );
 
     // Invert values for common anode RGBs
     if ( this.common === 'anode' ) {
@@ -53,7 +52,6 @@ function rgb( pin ) {
     }
 
     utils.dispatch( rgbWrite.bind( this ) );
-
   };
 
   /**
@@ -105,8 +103,9 @@ function rgb( pin ) {
   };
 
   // Reverse high/low values for common anode LEDs
-  var zero = pin.common === 'anode' ? 255 : 0,
-    top = pin.common === 'anode' ? 0 : 255;
+  var zero = pin.common === 'anode' ? 255 : 0;
+
+  var top = pin.common === 'anode' ? 0 : 255;
 
   pin.on = function() {
 

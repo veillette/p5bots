@@ -59,11 +59,10 @@ function led( pin ) {
    */
   pin.fade = function( start, stop, totalTime, increment ) {
     function ledFade() {
-
       this.mode = 'pwm';
 
-      var totalTime = totalTime || 3000,
-        inc = increment || 200;
+      var totalTime = totalTime || 3000;
+      var inc = increment || 200;
       utils.socket.emit( 'fade', {
         pin: this.pin,
         start: start,

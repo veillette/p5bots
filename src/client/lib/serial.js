@@ -1,6 +1,6 @@
-var utils = require( './socket_utils.js' ),
-  socket = utils.socket,
-  serialObj = {};
+var utils = require( './socket_utils.js' );
+var socket = utils.socket;
+var serialObj = {};
 
 /**
  * Serial does not work along the same methods as Firmata-dependent

@@ -16,8 +16,8 @@ function vres( pin ) {
    * @param range
    */
   pin.range = function( range ) {
-    var min = range[ 0 ],
-      max = range[ 1 ];
+    var min = range[ 0 ];
+    var max = range[ 1 ];
 
     function vrRange() {
       this.readRange = function() {
