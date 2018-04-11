@@ -1,4 +1,4 @@
-var utils = require( './socket_utils.js' );
+import utils from './socket_utils.js';
 
 /**
  * Adds temp sensor–specific methods to pin object. Called via special.
@@ -31,4 +31,4 @@ function temp( pin ) {
   return pin;
 }
 
-module.exports = temp;
+export default temp;

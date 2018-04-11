@@ -180,4 +180,4 @@ var utils = {
 
 };
 
-module.exports = utils;
+export default utils;
