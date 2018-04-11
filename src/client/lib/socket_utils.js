@@ -81,7 +81,7 @@ var utils = {
   dispatch: function( fn, arg ) {
     this.board.ready ?
     fn( arg )
-      : this.board.eventQ.push( { func: fn, args: [ arg ] } );
+                     : this.board.eventQ.push( { func: fn, args: [ arg ] } );
   },
 
   /**

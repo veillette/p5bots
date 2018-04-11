@@ -1,4 +1,5 @@
 import utils from './socket_utils.js';
+
 var socket = utils.socket;
 var serialObj = {};
 

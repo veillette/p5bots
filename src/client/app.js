@@ -2,8 +2,6 @@
  * @module Basic constructors
  */
 
-'use strict';
-
 import utils from './lib/socket_utils.js';
 import special from './lib/special_methods_index.js';
 var modeError = "Please check mode. Value should be 'analog', 'digital', 'pwm', or servo"; // jshint ignore:line
