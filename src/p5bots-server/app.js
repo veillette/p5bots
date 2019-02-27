@@ -1,23 +1,22 @@
 #!/usr/bin/env node
 'use strict';
 
-var express = require( 'express' );
-var app = express();
-var server = require( 'http' ).Server( app );
+const express = require( 'express' );
+const app = express();
+const server = require( 'http' ).Server( app );
 
-var // jshint ignore:line
+const // jshint ignore:line
 io = require( 'socket.io' )( server );
 
-var Board = require( 'firmata' );
-var program = require( 'commander' );
-var fs = require( 'fs' );
-var path = require( 'path' );
+const Firmata = require( 'firmata' );
+const program = require( 'commander' );
+const fs = require( 'fs' );
+const path = require( 'path' );
 
 // Parse command-line args
-var directory;
+let directory;
 
-var index;
-var program;
+let index;
 
 function makeAbsolute( filepath ) {
   if ( path.isAbsolute( filepath ) ) {return filepath;}
@@ -53,9 +52,9 @@ app.get( '/', function( req, res ) {
 
 // App code: Define as export for IDE, call at end of file for non-IDE usage
 
-var setup = exports.setup = function( io ) {
+let setup = exports.setup = function( io ) {
 
-  var board;
+  let board;
 
   io.of( '/sensors' ).on( 'connect', function( socket ) {
     console.log( 'connected' );
@@ -67,7 +66,7 @@ var setup = exports.setup = function( io ) {
       console.log( err );
     } );
 
-    // Board setup
+    // Firmata setup
 
     socket.on( 'board object', function( data ) {
 
@@ -82,7 +81,7 @@ var setup = exports.setup = function( io ) {
       // functions are called without restarting the whole process
 
       if ( !board ) {
-        board = new Board( data.port, function( err ) {
+        board = new Firmata( data.port, function( err ) {
           if ( err ) {
             throw new Error( err );
           }
@@ -99,9 +98,11 @@ var setup = exports.setup = function( io ) {
     socket.on( 'pin object', function( data ) {
       console.log( 'pin object caught', data );
       // Digital pins are set to INPUT or OUTPUT in firmata
-      data.mode === 'digital' ?
-      board.pinMode( data.pin, board.MODES[ data.direction.toUpperCase() ] ) :
-      board.pinMode( data.pin, board.MODES[ data.mode.toUpperCase() ] );
+      if (data.mode === 'digital') {
+        board.pinMode( data.pin, board.MODES[ data.direction.toUpperCase() ] );
+      } else {
+        board.pinMode( data.pin, board.MODES[ data.mode.toUpperCase() ] );
+      }
     } );
 
     // Action functions:
@@ -110,7 +111,7 @@ var setup = exports.setup = function( io ) {
 
     socket.on( 'action', function( data ) {
       // console.log('action data', data);
-      var argument = data.arg;
+      let argument = data.arg;
       if ( argument ) {
         // If it is digitalWrite, augment the argument with
         // `board` to match firmata call
@@ -134,35 +135,35 @@ var setup = exports.setup = function( io ) {
     function initializeSpecialFuncs( board ) {
 
       // LED
-      var led = require( './lib/led.js' );
+      let led = require( './lib/led.js' );
       led.blink( board, socket );
       led.fade( board, socket );
 
       // RGB
-      var rgb = require( './lib/rgb.js' );
+      let rgb = require( './lib/rgb.js' );
       rgb.write( board, socket );
       rgb.read( board, socket );
       rgb.blink( board, socket );
       rgb.fade( board, socket );
 
       // Servo
-      var servo = require( './lib/servo.js' );
+      let servo = require( './lib/servo.js' );
       servo.range( board, socket );
       servo.sweep( board, socket );
 
       // Piezo
-      var piezo = require( './lib/piezo.js' );
+      let piezo = require( './lib/piezo.js' );
       piezo.tone( board, socket );
 
       // User defined, if present
 
-      var filepath;
+      let filepath;
 
       if ( program.ufilename ) {
         filepath = program.ufilename;
       }
       else if ( program.ufilepath ) {
-        var userpath = program.ufilepath || __dirname;
+        let userpath = program.ufilepath || __dirname;
         filepath = userpath + '/user.js';
       }
 
@@ -170,10 +171,10 @@ var setup = exports.setup = function( io ) {
         filepath = path.normalize( filepath );
         fs.stat( filepath, function( err, stats ) {
           if ( err == null ) {
-            var reqPath = makeAbsolute( filepath );
+            let reqPath = makeAbsolute( filepath );
 
-            var user = require( reqPath );
-            var keys = Object.keys( user );
+            let user = require( reqPath );
+            let keys = Object.keys( user );
 
             keys.forEach( function( key ) {
               user[ key ]( board, socket );
@@ -193,7 +194,7 @@ var setup = exports.setup = function( io ) {
     }
 
     // Serial does not require firmata board
-    var serial = require( './lib/serial.js' );
+    let serial = require( './lib/serial.js' );
     serial.init( socket );
     serial.read( socket );
     serial.write( socket );
