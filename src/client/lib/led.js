@@ -14,7 +14,7 @@ function led( pin ) {
 
     function ledOn() {
       utils.socket.emit( 'blink cancel', {
-        pin: [ this.pin ]
+        pin: this.pin
       });
 
       if ( this.mode !== 'pwm' ) {
@@ -33,7 +33,7 @@ function led( pin ) {
 
     function ledOff() {
       utils.socket.emit( 'blink cancel', {
-        pin: [ this.pin ]
+        pin: this.pin
       });
 
       if ( this.mode !== 'pwm' ) {
@@ -59,9 +59,10 @@ function led( pin ) {
    *
    */
   pin.fade = function( start, stop, totalTime, increment ) {
+
     function ledFade() {
       utils.socket.emit( 'blink cancel', {
-        pin: [ this.pin ]
+        pin: this.pin
       });
 
       this.mode = 'pwm';
@@ -74,17 +75,18 @@ function led( pin ) {
         stop,
         time: totalTime,
         inc
-      } );
+      });
     }
 
     utils.dispatch( ledFade.bind( this ) );
+
   };
 
   pin.blink = function( length ) {
 
     function ledBlink() {
       utils.socket.emit( 'blink', {
-        pin: [ this.pin ],
+        pin: this.pin,
         length
       } );
     }
@@ -97,15 +99,16 @@ function led( pin ) {
 
     function ledNoBlink() {
       utils.socket.emit( 'blink cancel', {
-        pin: [ this.pin ]
+        pin: this.pin
       });
-    }
+    };
 
-    utils.dispatch( ledNoBlink );
+    utils.dispatch( ledNoBlink.bind( this ) );
 
   };
 
   return pin;
+
 }
 
 module.exports = led;

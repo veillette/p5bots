@@ -188,7 +188,8 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-newer' );
 
   // Create the multitasks.
-  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
+//  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
+  grunt.registerTask( 'build', [ 'browserify' ] );
   grunt.registerTask( 'test', [ 'jshint', 'jscs', 'build', 'connect', 'mocha', 'mocha-chai-sinon' ] );
   grunt.registerTask( 'default', [ 'test' ] );
 };

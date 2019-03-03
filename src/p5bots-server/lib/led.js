@@ -8,6 +8,10 @@ exports.blink = function blink( board, socket ) {
 
     board.pinMode( ledPin, board.MODES.OUTPUT );
 
+    // kill any blink interval currently assigned to the pin
+    clearInterval(intervals[ledPin]);
+    delete intervals[ledPin];
+
     let interval = setInterval( function() {
       if ( ledOn ) {
         board.digitalWrite( ledPin, board.HIGH );
@@ -21,8 +25,10 @@ exports.blink = function blink( board, socket ) {
     intervals[ledPin] = interval;
   });
 
-  socket.on( 'blink cancel', function() {
-    clearInterval( intervals[ledPin] );
+  socket.on( 'blink cancel', function( data ) {
+    const ledPin = data.pin;
+    clearInterval(intervals[ledPin]);
+    delete intervals[ledPin];
   });
 };
 
