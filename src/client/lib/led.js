@@ -101,7 +101,7 @@ function led( pin ) {
       utils.socket.emit( 'blink cancel', {
         pin: this.pin
       });
-    };
+    }
 
     utils.dispatch( ledNoBlink.bind( this ) );
 
