@@ -162,6 +162,13 @@ module.exports = function( grunt ) {
         }
       }
     },
+
+    shell: {
+      connect: {
+        command: 'cd src/p5bots-server; node ./app.js'
+      }
+    },
+
     // This is a static server which is used when testing connectivity for the
     // p5 library. This avoids needing an internet connection to run the tests.
     // It serves all the files in the test directory at http://localhost:9001/
@@ -195,10 +202,12 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-mocha' );
   grunt.loadNpmTasks( 'grunt-mocha-chai-sinon' );
   grunt.loadNpmTasks( 'grunt-newer' );
+  grunt.loadNpmTasks( 'grunt-shell' );
 
   // Create the multitasks.
 //  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
   grunt.registerTask( 'build', [ 'browserify' ] );
+  grunt.registerTask( 'default', [ 'server' ] );
+  grunt.registerTask( 'server', [ 'shell:connect' ] );
   grunt.registerTask( 'test', [ 'jshint', 'jscs', 'build', 'connect', 'mocha', 'mocha-chai-sinon' ] );
-  grunt.registerTask( 'default', [ 'test' ] );
 };
