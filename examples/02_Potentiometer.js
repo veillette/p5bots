@@ -1,5 +1,4 @@
-// Basic: Analog Read
-// Diagram: diagrams/potentiometer
+// Basic: Potentiometer
 
 // Test analog read
 let pinPotentiometer;
