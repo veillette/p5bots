@@ -1,18 +1,14 @@
-// set this to your USB port - you can get this information in the Arduino app under Tools > Port
-// or from Terminal, you can type:
-//    $ ls -l /dev/cu.*
-// to see a list of your ports
-var b = p5.board( '/dev/cu.usbmodem5423051', 'arduino' );
+// `board` is defined in board.js
+
 var led;
 
 function setup() {
   createCanvas(400, 400);
-  led = b.pin( 14, 'LED' );
+  led = board.pin( 14, 'LED' );
 }
 
 function draw() {
   background(220);
-  ellipse(width/2, height/2, width/2, width/2);
 }
 
 function keyPressed() {

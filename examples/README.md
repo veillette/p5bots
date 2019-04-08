@@ -48,15 +48,15 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test digital read
-var p = b.pin(9, 'DIGITAL', 'INPUT');
+let p = board.pin(9, 'DIGITAL', 'INPUT');
 p.read(function(val){console.log(val);});
 
 function setup() {
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings</p>';
 
   createDiv(innerStr);
@@ -70,16 +70,16 @@ _diagram: potentiometer_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test analog read
-var p = b.pin(0, 'ANALOG', 'INPUT');
+let p = board.pin(0, 'ANALOG', 'INPUT');
 p.read(function(val){console.log(val);});
 
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings</p>';
 
   createDiv(innerStr);
@@ -93,20 +93,20 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Draw ellipses with a button
 
-var p;
+let p;
 
 function setup() {
-  p = b.pin(9, 'DIGITAL', 'INPUT');
+  p = board.pin(9, 'DIGITAL', 'INPUT');
   p.read();
 
   createCanvas(1200, 300);
   noStroke();
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press the button</p>';
 
   createDiv(innerStr);
@@ -127,22 +127,22 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Click the circle to light the LED
  
-var pin;
+let pin;
 
 function setup() {
   createCanvas(400, 400);
   noStroke();
   fill(62, 0, 255);
   ellipse(width/2, height/2, 100, 100);
-  pin = b.pin(9, 'DIGITAL', 'OUTPUT');
+  pin = board.pin(9, 'DIGITAL', 'OUTPUT');
 }
 
 function mousePressed() {
-  var d = dist(width/2, height/2, mouseX, mouseY);
+  let d = dist(width/2, height/2, mouseX, mouseY);
   if (d < 100) {
     pin.write('HIGH');
   }
@@ -157,16 +157,16 @@ Alternately, integrated with p5.DOM element.
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Click a button to light the LED
 
 function setup() {
   createCanvas(400, 400);
-  var pin = b.pin(9, 'DIGITAL', 'OUTPUT');
+  let pin = board.pin(9, 'DIGITAL', 'OUTPUT');
 
   
-  var button = createButton('LIGHT THE LED!!');
+  let button = createButton('LIGHT THE LED!!');
   button.position(width/2, height/2);
   button.mousePressed(function(){
     pin.write('HIGH');
@@ -185,21 +185,21 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // PWM Slider
 
-var slider, pin;
+let slider, pin;
 
 function setup() {
   slider = createSlider(0, 255, 150);
   slider.position = (10, 10);
-  pin = b.pin(9, 'PWM', 'OUTPUT');
+  pin = board.pin(9, 'PWM', 'OUTPUT');
 
 }
 
 function draw() {
-  var val = slider.value();
+  let val = slider.value();
   pin.write(val);
 }
 ```
@@ -211,17 +211,17 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Blink LED 
-var led;
+let led;
 
 function setup() {
-  led = b.pin(9, 'LED');
+  led = board.pin(9, 'LED');
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> LED off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
@@ -249,18 +249,18 @@ _diagram: led_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Fade LED 
 
-var led;
+let led;
 
 function setup() {
-  led = b.pin(9, 'LED');
+  led = board.pin(9, 'LED');
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&darr;</b> Fade </p>';
 
   createDiv(innerStr);
@@ -282,11 +282,11 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 function setup() {
-  var rgb = b.pin({r: 9, g: 10, b: 11}, 'RGBLED');
-  var c = color(65);
+  let rgb = board.pin({r: 9, g: 10, b: 11}, 'RGBLED');
+  let c = color(65);
   rgb.write(c);
   fill(c);
   noStroke();
@@ -300,21 +300,21 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
-var rgb, c;
+let rgb, c;
 
 function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press any key & check out the console for readings</p>';
 
   createDiv(innerStr);
 
 
-  rgb = b.pin({r: 9, g: 10, b: 11}, 'RGBLED');
+  rgb = board.pin({r: 9, g: 10, b: 11}, 'RGBLED');
   c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
   rgb.write(c);
   fill(c);
@@ -334,16 +334,16 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // RGB LED On/Off/Blink
-var rgb, c;
+let rgb, c;
 
 function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> LED on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> LED off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Blink LED &nbsp; | &nbsp;';
@@ -351,7 +351,7 @@ function setup() {
 
   createDiv(innerStr);
 
-  rgb = b.pin({r: 9, g: 10, b: 11}, b.RGBLED);
+  rgb = board.pin({r: 9, g: 10, b: 11}, board.RGBLED);
   c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
   rgb.write(c);
   fill(c);
@@ -378,22 +378,22 @@ _diagram: rgb_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Fade RGB
-var rgb;
+let rgb;
 
 function setup() {
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&darr;</b> Fade </p>';
 
   createDiv(innerStr);
 
-  rgb = b.pin({r: 9, g: 10, b: 11}, 'RGBLED');
-  var c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
+  rgb = board.pin({r: 9, g: 10, b: 11}, 'RGBLED');
+  let c = color(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255));
   rgb.write(c);
   fill(c);
   noStroke();
@@ -415,17 +415,17 @@ _diagram: motor_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test motor functionality
-var motor;
+let motor;
 
 function setup() {
-  motor = b.pin(9, 'MOTOR');
+  motor = board.pin(9, 'MOTOR');
 
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Motor on &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Motor off &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> motor.write(100) </p>';
@@ -450,15 +450,15 @@ _diagram: servo_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test servo functionality
-var servo;
+let servo;
 
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> To 15 &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> To 45 &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Sweep &nbsp; | &nbsp;';
@@ -466,7 +466,7 @@ function setup() {
 
   createDiv(innerStr);
 
-  servo = b.pin(9, 'SERVO');
+  servo = board.pin(9, 'SERVO');
   servo.range([0, 60]);
 }
 
@@ -494,15 +494,15 @@ _diagram: simple_button_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test Pressed, Held, Released
-var button;
+let button;
 
 function setup() {
   createCanvas(600, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Press for Red &nbsp; | &nbsp;';
   innerStr += 'Release for Blue &nbsp; | &nbsp;';
   innerStr += 'Hold for Green </p>';
@@ -510,7 +510,7 @@ function setup() {
   createDiv(innerStr);
 
   
-  button = b.pin(9, 'BUTTON');
+  button = board.pin(9, 'BUTTON');
 
   function redEllipse() {
     console.log('pressed');
@@ -551,22 +551,22 @@ _diagram: potentiometer_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test Read & Threshold
-var pmeter;
+let pmeter;
 
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += 'Check out the console for readings &nbsp; | &nbsp;';
   innerStr += 'Press any key to test threshold </p>';
 
   createDiv(innerStr);
 
 
-  pmeter = b.pin(0, 'VRES');
+  pmeter = board.pin(0, 'VRES');
   pmeter.read(function(val){ console.log('pmeter read', val)});
   pmeter.range([10, 400]);
   pmeter.threshold(600);
@@ -586,15 +586,15 @@ This example uses a [LM-34 analog temperature sensor](http://www.ti.com/lit/ds/s
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Test all read modes
-var thermo;
+let thermo;
 
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Write F to console &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Write C to console &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Write raw value to console &nbsp; | &nbsp;';
@@ -603,7 +603,7 @@ function setup() {
   createDiv(innerStr);
 
 
-  thermo = b.pin({ pin: 0, voltsIn: 5 }, 'TEMP');
+  thermo = board.pin({ pin: 0, voltsIn: 5 }, 'TEMP');
   thermo.read();
 }
 
@@ -631,15 +631,15 @@ _diagram: tone_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Play tones
-var t;
+let t;
 
 function setup() {
   createCanvas(300, 200);
 
-  var innerStr = '<p style="font-family:Arial;font-size:12px">';
+  let innerStr = '<p style="font-family:Arial;font-size:12px">';
   innerStr += '<b>&larr;</b> Write note &nbsp; | &nbsp;';
   innerStr += '<b>&rarr;</b> Write frequency &nbsp; | &nbsp;';
   innerStr += '<b>&uarr;</b> Does nothing! &nbsp; | &nbsp;';
@@ -648,7 +648,7 @@ function setup() {
   createDiv(innerStr);
 
 
-  t = b.pin(8, 'TONE'); // Can also set mode to 'PIEZO'
+  t = board.pin(8, 'TONE'); // Can also set mode to 'PIEZO'
 }
 
 function keyPressed() {
@@ -674,21 +674,21 @@ _diagram: knock_
 
 ```js
 // Board setup — you may need to change the port
-var b = p5.board('COM3', 'arduino');
+let board = p5.board('COM3', 'arduino');
 
 // Get ready to knock
-var k;
+let k;
 
 function setup() {
 
  createCanvas(300, 200);
 
- var innerStr = '<p style="font-family:Arial;font-size:12px">';
+ let innerStr = '<p style="font-family:Arial;font-size:12px">';
  innerStr += 'Check out log to see values</p>';
 
  createDiv(innerStr);
 
- k = b.pin(0, 'KNOCK'); // Can also set mode to 'PIEZO'
+ k = board.pin(0, 'KNOCK'); // Can also set mode to 'PIEZO'
  k.threshold(200);
  k.read();
 }
@@ -705,7 +705,7 @@ function draw() {
 _no diagram, will return ambient values_
 
 ```js
-var serial;
+let serial;
 
 function setup() {
   serial = p5.serial();
