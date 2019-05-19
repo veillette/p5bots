@@ -42,6 +42,14 @@ module.exports = function( grunt ) {
     // read in the package, used for knowing the current version, et al.
     pkg: grunt.file.readJSON( 'package.json' ),
 
+    copy: {
+      main: {
+        files: [
+          { expand: true, src: ['lib/*'], dest: 'examples/', filter: 'isFile' },
+        ],
+      },
+    },
+
     // Configure style consistency checking for this file, the source, and the tests.
     jscs: {
       options: {
@@ -154,6 +162,13 @@ module.exports = function( grunt ) {
         }
       }
     },
+
+    shell: {
+      connect: {
+        command: 'cd src/p5bots-server; node ./app.js'
+      }
+    },
+
     // This is a static server which is used when testing connectivity for the
     // p5 library. This avoids needing an internet connection to run the tests.
     // It serves all the files in the test directory at http://localhost:9001/
@@ -178,17 +193,21 @@ module.exports = function( grunt ) {
 
   // Load the external libraries used.
   grunt.loadTasks( 'build/tasks' );
-  grunt.loadNpmTasks( 'grunt-jscs' );
+  grunt.loadNpmTasks( 'grunt-contrib-connect' );
+  grunt.loadNpmTasks( 'grunt-contrib-copy' );
   grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  grunt.loadNpmTasks( 'grunt-jscs' );
   grunt.loadNpmTasks( 'grunt-mocha' );
   grunt.loadNpmTasks( 'grunt-mocha-chai-sinon' );
-  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-  grunt.loadNpmTasks( 'grunt-contrib-connect' );
   grunt.loadNpmTasks( 'grunt-newer' );
+  grunt.loadNpmTasks( 'grunt-shell' );
 
   // Create the multitasks.
-  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
+//  grunt.registerTask( 'build', [ 'browserify', 'uglify' ] );
+  grunt.registerTask( 'build', [ 'browserify' ] );
+  grunt.registerTask( 'default', [ 'server' ] );
+  grunt.registerTask( 'server', [ 'shell:connect' ] );
   grunt.registerTask( 'test', [ 'jshint', 'jscs', 'build', 'connect', 'mocha', 'mocha-chai-sinon' ] );
-  grunt.registerTask( 'default', [ 'test' ] );
 };
